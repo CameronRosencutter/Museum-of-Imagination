@@ -10,8 +10,6 @@
   max-width: 1050px;
   padding: 10px;
 }
-.buildinggallery .building .windowpane::before {
-  content: "";
-  display: block;
-  z-index: 2;
+.buildinggallery .building .buildingrow .image-container {
+  filter: hue-rotate(180%);
 }/*# sourceMappingURL=styles.css.map */
