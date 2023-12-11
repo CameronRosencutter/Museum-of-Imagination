@@ -1,0 +1,19 @@
+.buildinggallery {
+    background-color:#52688F;
+    justify-content: space-around;
+
+    .building{
+        background-color: #071330;
+        outline: 5px solid;
+        margin: auto;
+        min-width: 400px;
+        max-width: 1050px;
+        padding: 10px;
+
+        .windowpane::before {
+            content: "";
+            display: block;
+            z-index: 2;
+        }
+    }
+}
