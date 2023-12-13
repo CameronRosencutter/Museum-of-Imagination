@@ -35,6 +35,7 @@
 }
 .buildinggallery .building .buildingrow .imagebox .frontimage:hover {
   opacity: 0.2;
+  box-shadow: 0 0 18px 1px #f0ba08;
 }
 .buildinggallery .building .buildingrow .imagebox .backimage {
   z-index: 1;
