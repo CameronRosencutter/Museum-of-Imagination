@@ -11,13 +11,35 @@
         padding: 10px;
 
         .buildingrow {
+            outline: yellow solid 3px;
+            justify-content: space-around;
 
-            .image-container {
-                filter:saturate(100 yellow)
-            }
+            .imagebox {
+                position: relative;
+                outline: solid red 3px;
+                
+                .frontimage, .backimage {
+                    position: absolute;
+                    width: 70%;
+                    left: 40px;
+                    height: 100%;
+                    transition: opacity 0.8s ease-in-out; /* Add a smooth transition for opacity change */
+                }
+
+                .frontimage {
+                    z-index: 5;
+                }
+
+                .frontimage:hover {
+                    opacity: 0.3;
+                }
             
+                .backimage {
+                    z-index:1;
+                    opacity: 1; /* Initially hide the backimage */
+                }
+            }
         }
-
-
     }
 }
+
