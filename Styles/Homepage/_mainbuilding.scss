@@ -11,18 +11,24 @@
         padding: 10px;
 
         .buildingrow {
-            outline: yellow solid 3px;
-            justify-content: space-around;
+            height: 180px;
 
             .imagebox {
-                position: relative;
-                outline: solid red 3px;
+                position: block;
+
                 
                 .frontimage, .backimage {
+                    border-top: #D5DEED 5px solid;
+                    border-right: #D5DEED 5px solid;
+                    border-bottom: #52688F 5px solid;
+                    border-left: #52688F 5px solid;
                     position: absolute;
-                    width: 70%;
-                    left: 40px;
-                    height: 100%;
+                    min-width: 180px;
+                    top: 50%;
+                    left: 50%;
+                    height: 200px;
+                    width: 200px;
+                    transform: translate(-50%, -50%);
                     transition: opacity 0.8s ease-in-out; /* Add a smooth transition for opacity change */
                 }
 
@@ -31,7 +37,7 @@
                 }
 
                 .frontimage:hover {
-                    opacity: 0.3;
+                    opacity: 0.2;
                 }
             
                 .backimage {
