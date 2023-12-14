@@ -41,45 +41,7 @@
   opacity: 1; /* Initially hide the backimage */
 }
 
-.buildinggallery {
-  background-color: #52688F;
-}
-.buildinggallery .building {
+header ul {
   background-color: #071330;
-  outline: 5px solid;
-  margin: auto;
-  min-width: 400px;
-  max-width: 1050px;
-  padding: 10px;
-}
-.buildinggallery .building .buildingrow {
-  height: 180px;
-}
-.buildinggallery .building .buildingrow .imagebox {
-  position: block;
-}
-.buildinggallery .building .buildingrow .imagebox .frontimage, .buildinggallery .building .buildingrow .imagebox .backimage {
-  border-top: #D5DEED 5px solid;
-  border-right: #D5DEED 5px solid;
-  border-bottom: #52688F 5px solid;
-  border-left: #52688F 5px solid;
-  position: absolute;
-  min-width: 180px;
-  top: 50%;
-  left: 50%;
-  height: 200px;
-  width: 200px;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.8s ease-in-out; /* Add a smooth transition for opacity change */
-}
-.buildinggallery .building .buildingrow .imagebox .frontimage {
-  z-index: 5;
-}
-.buildinggallery .building .buildingrow .imagebox .frontimage:hover {
-  opacity: 0.2;
-  box-shadow: 0 0 18px 1px #f0ba08;
-}
-.buildinggallery .building .buildingrow .imagebox .backimage {
-  z-index: 1;
-  opacity: 1; /* Initially hide the backimage */
+  padding: 15px;
 }/*# sourceMappingURL=styles.css.map */
