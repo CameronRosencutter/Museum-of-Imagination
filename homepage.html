@@ -53,27 +53,20 @@
   </head>
   <body class="body">
     <header class="header">
-      <ul class="nav justify-content-center">
-        <li class="nav-item">
-            <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Gallery
-            </a>
-            <div class="dropdown-menu" aria-labelledby="galleryDropdown">
-                <a class="dropdown-item" href="#">Option 1</a>
-                <a class="dropdown-item" href="#">Option 2</a>
-                <a class="dropdown-item" href="#">Option 3</a>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-    </ul>
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <img src="Images\hamicon.png"  width="50px">
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Features</a>
+            <a class="nav-item nav-link" href="#">Pricing</a>
+            <a class="nav-item nav-link disabled" href="#">Disabled</a>
+          </div>
+        </div>
+      </nav>
         <div>
             <div class="buildinggallery p-2">
                 <div class='building container p-2'>
@@ -100,12 +93,26 @@
                   <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6"><img src="Images\screen.png" class="mx-auto frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon3.png" class="mx-auto d-block backimage" alt=""></div>
                   <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-none d-md-block"><img src="Images\screen.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\floatingcityicon.png" class="mx-auto d-block backimage" alt=""></div>
                   <div class="imagebox col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 d-none d-lg-block"><img src="Images\screen.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon copy 5.png" class="mx-auto d-block backimage" alt=""></div>
-              </div>
-
-                    
+              </div>  
             </div>
           </div>
         </div>
+        <section class="entersection">
+          <div class="wrapper ">
+            <div class="container">
+              <div class="Museum">
+                <p></p>
+                <img src="Images\Museumopen.png" width="80%" height="100%" alt="">
+              </div>
+              <div>
+                <img src="Images\Artboard 35.png"  width="100%">
+              </div>
+            </div>
+            <div class="walkwayspace">
+            </div>
+          </div>
+
+        </section>
     </header>
   </body>
 </html>

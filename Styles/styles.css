@@ -41,7 +41,87 @@
   opacity: 1; /* Initially hide the backimage */
 }
 
-header ul {
+@font-face {
+  font-family: MinimalustRegular;
+  src: url(../Fonts/MinimalustRegular.otf);
+}
+@font-face {
+  font-family: MinimalustGlyph;
+  src: url(../Fonts/MinimalustGlyph.otf);
+}
+@font-face {
+  font-family: MinimalustThin;
+  src: url(../Fonts/MinimalustThin.otf);
+}
+@font-face {
+  font-family: MinimalustThin;
+  src: url(../Fonts/MinimalustThin.otf);
+}
+@font-face {
+  font-family: MinimalustSmallCap;
+  src: url(../Fonts/MinimalustSmallCap.otf);
+}
+@font-face {
+  font-family: MinimalustSmallCapItalic;
+  src: url(../Fonts/MinimalustSmallCapItalic.otf);
+}
+header .navbar {
   background-color: #071330;
-  padding: 15px;
+}
+header .navbar a {
+  font-family: MinimalustSmallCap;
+  color: white;
+  border: rgb(255, 255, 255);
+  font-size: 25px;
+  transition: ease-in-out 0.3s;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+header .navbar a:hover {
+  font-size: 30px;
+  color: white;
+}
+
+@font-face {
+  font-family: MinimalustRegular;
+  src: url(../Fonts/MinimalustRegular.otf);
+}
+@font-face {
+  font-family: MinimalustGlyph;
+  src: url(../Fonts/MinimalustGlyph.otf);
+}
+@font-face {
+  font-family: MinimalustThin;
+  src: url(../Fonts/MinimalustThin.otf);
+}
+@font-face {
+  font-family: MinimalustThin;
+  src: url(../Fonts/MinimalustThin.otf);
+}
+@font-face {
+  font-family: MinimalustSmallCap;
+  src: url(../Fonts/MinimalustSmallCap.otf);
+}
+@font-face {
+  font-family: MinimalustSmallCapItalic;
+  src: url(../Fonts/MinimalustSmallCapItalic.otf);
+}
+.entersection {
+  justify-content: center;
+  background: linear-gradient(to top, #071330, #52688F);
+}
+.entersection .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.entersection .container .Museum {
+  margin-top: 400px;
+  display: flex;
+  justify-content: center;
+}
+.entersection .walkwayspace {
+  height: 300px;
+  width: 100%;
+  background-color: #52688F;
 }/*# sourceMappingURL=styles.css.map */

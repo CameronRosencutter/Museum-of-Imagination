@@ -1,0 +1,24 @@
+.entersection {
+    justify-content: center;
+    background: linear-gradient(to top, #071330, #52688F);
+
+    .container {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .Museum {
+            margin-top: 400px;
+
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .walkwayspace {
+        height: 300px;
+        width: 100%;
+        background-color: #52688F;
+    }
+}
