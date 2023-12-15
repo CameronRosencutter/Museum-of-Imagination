@@ -1,0 +1,19 @@
+.whatwedo {
+outline: solid blue 2px;
+padding: 30px;
+display: flex;
+justify-content: center;
+background-color: #071330;
+
+    .card {
+    outline: solid 3px rgb(255, 255, 255);
+    background-color:#d0daec;
+    min-width: 100px;
+    max-width: 350px;
+
+    .panel {
+        outline: green solid 3px;
+    }
+}
+
+}
