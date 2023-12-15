@@ -1,0 +1,24 @@
+@import 'fonts.scss';
+
+header {
+
+    .navbar {
+        background-color: #071330;
+
+
+        a {
+            font-family: MinimalustSmallCap;
+            color: white;
+            border: rgb(255, 255, 255);
+            font-size: 25px;
+            transition: ease-in-out 0.3s;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        
+        a:hover {
+            font-size: 30px;
+            color: white;
+        }
+    }
+}
