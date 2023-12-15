@@ -1,3 +1,5 @@
+@import '../fonts.scss';
+
 .entersection {
     justify-content: center;
     background: linear-gradient(to top, #071330, #52688F);
@@ -20,5 +22,26 @@
         height: 300px;
         width: 100%;
         background-color: #52688F;
+        display: flex;
+        justify-content: center;
+
+        .text-center {
+            color: white;
+            outline: red solid;
+            width: 70%;
+
+            h1 {
+                font-size: 50px;
+                margin-top: 50px;
+                font-family: QuickSandBold;
+            }
+
+            p {
+                text-align: center;
+                margin-top: 50px;
+                font-family: QuickSandDash;
+                font-size: 20px;
+            }
+        }
     }
 }
