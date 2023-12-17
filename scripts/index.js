@@ -2,52 +2,9 @@
 import * as THREE from 'three';
 import { PointerLockControls } from '/node_modules/three/examples/jsm/controls/PointerLockControls.js';
 // // imports for add ons to THREE
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-// // import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
-// import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
-// console.log("THREE object is loaded 😄, here is the THREE object: ", THREE);
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
-
-// // Instantiate a loader
-// const gltfLoader = new GLTFLoader();
-
-// // Optional: Provide a DRACOLoader instance to decode compressed mesh data
-// const dracoLoader = new DRACOLoader();
-// dracoLoader.setDecoderPath('/node_modules/three/examples/js/libs/draco/');
-// gtlfLoader.setDRACOLoader(dracoLoader);
-
-// // Load a glTF resource
-// gtlfLoader.load(
-//     // resource URL
-//     '/models/horse_statue_01_1k.gltf',
-//     // called when the resource is loaded
-//     function (gltf) {
-
-//         scene.add(gltf.scene);
-
-//         gltf.animations; // Array<THREE.AnimationClip>
-//         gltf.scene; // THREE.Group
-//         gltf.scenes; // Array<THREE.Group>
-//         gltf.cameras; // Array<THREE.Camera>
-//         gltf.asset; // Object
-
-//     },
-//     // called while loading is progressing
-//     function (xhr) {
-
-//         console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-
-//     },
-//     // called when loading has errors
-//     function (error) {
-
-//         console.log('An error happened', error);
-//     }
-// );
-
-
-
+console.log("THREE object is loaded 😄, here is the THREE object: ", THREE);
 /**
  * STEPS TO CREATE A THREE.JS SCENE
  * 1. Create a scene
@@ -79,8 +36,18 @@ const camera = new THREE.PerspectiveCamera(
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 // set clear color to white
-renderer.setClearColor(0x000000, 1);
+// renderer.setClearColor(0x000000, 1);
 document.body.appendChild(renderer.domElement);
+
+/////////// Background Images//////////////////// 
+const imgUrl1 = '../Images/assets/artGallery1Index/low-angle-shot-mesmerizing-starry-sky.jpg';
+const imgUrl2 = '../Images/assets/artGallery1Index/astronomy.png';
+const imgUrl3 = '../Images/assets/artGallery1Index/ultra-detailed-nebula-abstract-wallpaper-4.jpg';
+
+const loader = new THREE.TextureLoader();
+loader.load(imgUrl3, (texture) => {
+    scene.background = texture;
+});
 
 // add camera to scene
 scene.add(camera);
@@ -514,7 +481,6 @@ function animate() {
 
     // bounce the cube up and down
     cube.position.y = Math.abs(Math.sin(Date.now() * 0.002)) * 20;
-
 
 
 

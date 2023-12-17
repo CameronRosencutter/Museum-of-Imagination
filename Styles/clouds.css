@@ -27,17 +27,41 @@ body {
     z-index: -1;
 }
 
+/* .container_clouds2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    z-index: 3;
+} */
+
 .cloud {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: url(../Images/assets/cloud_s.bmp);
+    background: url(../Images/assets/cloud_s.bmp) repeat;
     background-size: cover;
     animation: animate 60s linear infinite;
-    opacity: 0.7;
+    opacity: 0.1;
     z-index: -1;
+}
+
+.cloud2 {
+    position: absolute;
+
+    left: 0;
+    width: 100%;
+    height: 200vh;
+    background: url(../Images/assets/cloud_s.bmp) repeat;
+    background-size: cover;
+    animation: animate 100s linear infinite;
+    opacity: 0.1;
+    z-index: 2;
 }
 
 @keyframes animate {
@@ -47,5 +71,82 @@ body {
 
     100% {
         background-position: -5440px;
+    }
+}
+
+.museum_img {
+    z-index: 1;
+}
+
+.building {
+    position: relative;
+    outline: 5px solid;
+    margin: auto;
+    padding: 10px;
+    z-index: 5;
+
+}
+
+.Museum {
+    z-index: 2;
+    position: relative;
+}
+
+/* Example media queries for different screen widths */
+
+/* For screens wider than 600px */
+/* For screens wider than 800px */
+@media (min-width: 300px) {
+    .cloud2 {
+        height: 240vh;
+        /* Further decrease height */
+    }
+}
+
+/* For screens wider than 800px */
+@media (min-width: 500px) {
+    .cloud2 {
+        height: 250vh;
+        /* Further decrease height */
+    }
+}
+
+@media (min-width: 600px) {
+    .cloud2 {
+        height: 260vh;
+        /* Decrease height */
+    }
+}
+
+/* For screens wider than 800px */
+@media (min-width: 700px) {
+    .cloud2 {
+        height: 270vh;
+        /* Further decrease height */
+    }
+}
+
+/* For screens wider than 800px */
+@media (min-width: 800px) {
+    .cloud2 {
+        height: 280vh;
+        /* Further decrease height */
+    }
+}
+
+
+@media (min-width: 900px) {
+    .cloud2 {
+        height: 280vh;
+        /* Even more decrease */
+    }
+
+}
+
+/* For screens wider than 1000px */
+@media (min-width: 1000px) {
+    .cloud2 {
+        height: 220vh;
+        /* Even more decrease */
     }
 }
