@@ -1,5 +1,4 @@
 .whatwedo {
-outline: solid blue 2px;
 padding: 30px;
 display: flex;
 justify-content: center;
@@ -16,4 +15,18 @@ background-color: #071330;
     }
 }
 
+}
+
+.whatwedosection {
+    padding-top: 30px;
+    text-align: center;
+    background-color: #071330;
+
+    h1 {
+        color: white;
+        font-size: 50px;
+        margin-top: 50px;
+        font-family: QuickSandBold;
+        border-bottom: #d0daec solid 2px;
+    }
 }

@@ -179,9 +179,20 @@ header .navbar a:hover {
   margin-top: 400px;
   display: flex;
   justify-content: center;
+  transition: 0.5s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
+}
+.entersection .container .Museum .open {
+  display: none;
+}
+.entersection .container .Museum .closed:hover {
+  display: none;
+}
+.entersection .container .Museum .closed:hover + .open {
+  display: block;
 }
 .entersection .walkwayspace {
-  height: 300px;
+  height: 400px;
   width: 100%;
   background-color: #52688F;
   display: flex;
@@ -205,7 +216,6 @@ header .navbar a:hover {
 }
 
 .whatwedo {
-  outline: solid blue 2px;
   padding: 30px;
   display: flex;
   justify-content: center;
@@ -219,4 +229,17 @@ header .navbar a:hover {
 }
 .whatwedo .card .panel {
   outline: green solid 3px;
+}
+
+.whatwedosection {
+  padding-top: 30px;
+  text-align: center;
+  background-color: #071330;
+}
+.whatwedosection h1 {
+  color: white;
+  font-size: 50px;
+  margin-top: 50px;
+  font-family: QuickSandBold;
+  border-bottom: #d0daec solid 2px;
 }/*# sourceMappingURL=styles.css.map */
