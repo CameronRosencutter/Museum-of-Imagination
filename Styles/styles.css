@@ -242,4 +242,13 @@ header .navbar a:hover {
   margin-top: 50px;
   font-family: QuickSandBold;
   border-bottom: #d0daec solid 2px;
+}
+
+body {
+  background-color: #071330;
+}
+
+Footer {
+  background-color: #071330;
+  color: white;
 }/*# sourceMappingURL=styles.css.map */
