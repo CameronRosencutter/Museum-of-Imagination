@@ -1,6 +1,7 @@
 // controls.js
 import * as THREE from 'three';
 import { PointerLockControls } from '/node_modules/three/examples/jsm/controls/PointerLockControls.js';
+import { showMenu, hideMenu } from './menu.js';
 
 //////////////////////////////////////////////////////////////////////////////
 // Pointer Lock Controls - Key bindings for camera movement
@@ -8,32 +9,6 @@ import { PointerLockControls } from '/node_modules/three/examples/jsm/controls/P
 export function initControls(camera, renderer) {
     // Pointer Lock Controls
     const cursorControls = new PointerLockControls(camera, renderer.domElement);
-
-    // show menu
-    const menu = document.getElementById('menu-div');
-
-    const showMenu = () => {
-        menu.style.display = 'block';
-    }
-
-    const hideMenu = () => {
-        menu.style.display = 'none';
-    }
-
-    const playButton = document.getElementById('play-button');
-    playButton.addEventListener('click', () => {
-        hideMenu();
-        cursorControls.lock();
-    });
-
-    // // start experience
-    // startExperience = () => {
-    //     hideMenu();
-    //     cursorControls.lock();
-    // }
-
-
-    // show instructions
 
     // function to toggle pointer lock state
     function togglePointerLock() {
@@ -60,8 +35,6 @@ export function initControls(camera, renderer) {
     function onKeyDown(event) {
         let keycode = event.which;
 
-        // proposed new position
-        let newPosition = camera.position.clone();
 
         // Right arrow key or 'D' key
         if (keycode === 39 || keycode === 68) {
@@ -73,11 +46,16 @@ export function initControls(camera, renderer) {
         }
         // Up arrow key or 'W' key
         if (keycode === 38 || keycode === 87) {
+            event.preventDefault(); // Prevents the default action (scrolling in this case)
             camera.translateZ(-0.15);
         }
         // Down arrow key or 'S' key
-        else if (keycode === 40 || keycode === 83) {
+        if (keycode === 40 || keycode === 83) {
             camera.translateZ(0.15);
+        }
+        // Escape key
+        else if (keycode === 27) {
+            window.location.href = 'http.google.com'; // Replace with your desired URL
         }
     }; // end of onKeyDown function
 

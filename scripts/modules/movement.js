@@ -14,11 +14,11 @@ export const keysPressed = {
 
 // parameters we get from setupRendering where updateMovement is called. setupRendering gets the parameters from main.jsss
 export const updateMovement = (delta, controls, camera, walls) => {
-    const moveSpeed = 5 * delta; // moveSpeed is the distance the camera will move in one second. We multiply by delta to make the movement framerate independent. This means that the movement will be the same regardless of the framerate. This is important because if the framerate is low, the movement will be slow and if the framerate is high, the movement will be fast. This is not what we want. We want the movement to be the same regardless of the framerate.
+    const moveSpeed = 10 * delta;
 
-    const previousPosition = camera.position.clone(); // clone the camera position and store it in previousPosition. We will use this to reset the camera position if there is a collision
+    const previousPosition = camera.position.clone(); // clone the camera position and store it use this to reset the camera position if there is a collision
 
-    // cose self-explanatory
+    // keyboard controls
     if (keysPressed.ArrowRight || keysPressed.d) {
         controls.moveRight(moveSpeed);
     }
@@ -32,7 +32,7 @@ export const updateMovement = (delta, controls, camera, walls) => {
         controls.moveForward(-moveSpeed);
     }
 
-    // After the movement is applied, we check for collisions by calling the checkCollision function. If a collision is detected, we revert the camera's position to its previous position, effectively preventing the player from moving through walls.
+    //  check for collisions. If collision -
     if (checkCollision(camera, walls)) {
         // reset the camera position to the previous position.
         camera.position.copy(previousPosition);

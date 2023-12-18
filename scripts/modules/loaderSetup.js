@@ -114,7 +114,7 @@ export function initLoaders() {
 //     }
 // );
 
-function loadGLTFModel(scene, modelPath, texturePath, onLoad, onProgress, onError) {
+export function loadGLTFModel(scene, modelPath, texturePath, onLoad, onProgress, onError) {
     const loader = new GLTFLoader();
     const textureLoader = new THREE.TextureLoader();
 

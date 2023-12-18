@@ -15,17 +15,6 @@ import * as THREE from 'three';
 // };
 
 //////////////////////////////////////////////////////////////////////
-export function onWindowResize() {
-    // update camera aspect ratio
-    camera.aspect = window.innerWidth / window.innerHeight;
-    // update camera frustum
-    camera.updateProjectionMatrix();
-    // update renderer size
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-    return camera;
-}
-
 
 
 //////////////////////////////////////////////////////////////////////

@@ -2,12 +2,17 @@
 // Setup audio for the scene
 import * as THREE from "three";
 
-let sound;
+let sound = 0;
 // track if audio buffer is loaded
 let bufferLoaded = false;
 
 // setup audio for the scene
 export const audioSetup = (camera) => {
+
+    document.getElementById("start_audio").addEventListener("click", audioStart);
+    document.getElementById("pause_audio").addEventListener("click", audioPause);
+    document.getElementById("stop_audio").addEventListener("click", audioStop);
+
     // create an audio listener and add it to the camera
     const listener = new THREE.AudioListener();
     camera.add(listener);
@@ -24,7 +29,7 @@ export const audioSetup = (camera) => {
         // set the audio source to loop
         sound.setLoop(true);
         // set the audio source to autoplay
-        sound.setVolume(10);
+        sound.setVolume(0.2);
         // set to true when audio buffer is loaded
         bufferLoaded = true;
     });

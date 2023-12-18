@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../Styles/clouds.css">
 
 
-    <title> Imagination Gallery </title>
+    <title>Models Gallery</title>
 
     <!-- Popper.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -62,20 +62,11 @@
     <!-- Menu attached to room  -->
     <div id="menu" class="d-flex container-fluid justify-content-center col-12 py-5">
 
-        <!-- Card for Room 2  -->
-
-        <div id="menu-div" class="audio_controls">
-            <button id="start_audio">Start Audio </button>
-
-            <button id="pause_audio">Pause Audio </button>
-
-            <button id="stop_audio">Stop Audio </button>
-        </div>
-
+        <!-- Card for Room 1  -->
         <div class="card text-center text-primary bg-dark " style="width:350px">
-            <img class="card-img-top" style="height: 300px;" src="/Images/assets/weirdbuild.png" alt="Card image">
+            <img class="card-img-top" style="height: 300px;" src="/Images/assets/imagineamuseum.png" alt="Card image">
             <div class="card-body">
-                <h4 class="card-title">Welcome to Our Models Gallery <br><span class="text-dark">This
+                <h4 class="card-title">Museum of Imagination Tour<br><span class="text-dark">This
                         is
                         a 3D Art
                         Gallery.</span></h4>
@@ -84,19 +75,28 @@
                 <p>WASD/Arrows - Move Forward/Back/Left/Right</p>
                 <p>Click Mouse - Look Around</p>
 
+                <!--   -->
                 <div id="playButton" class=''>
                     <a id="play-button" href="/homepage.html"
-                        class="btn btn-block btn-link stretched-link text-light font-weight-bold btn-outline-primary rounded-circle ">Enter
-                        The Model and Art
-                        Gallery</a>
+                        class="btn btn-block btn-link stretched-link text-light font-weight-bold btn-outline-primary rounded-circle ">Return
+                        to Home Page </a>
                 </div>
-
             </div>
         </div>
-    </div>
-    <script src="../scripts/modules/1_galleryApp.js" type="module">
 
-    </script>
+        <!-- Card for Room 2  -->
+
+        <div id="menu" class="audio_controls">
+            <button id="start_audio">Start Audio </button>
+
+            <button id="pause_audio">Pause Audio </button>
+
+            <button id="stop_audio">Stop Audio </button>
+        </div>
+
+    </div>
+    <script type="module" src="/scripts/modules/1_galleryApp.js"></script>
+
 </body>
 
 </html>
