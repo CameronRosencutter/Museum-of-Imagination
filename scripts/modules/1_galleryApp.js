@@ -9,13 +9,16 @@ import { addObjects } from './objects.js';
 import { animate } from './animation.js';
 import { onWindowResize } from './utility.js';
 import { audioSetup } from './musicSetup.js';
-// import { loadGLTFModel } from './loaderSetup.js';
+import { initLoaders } from './loaderSetup.js';
 import { MapControls } from 'three/addons/controls/MapControls.js';
+
+
 // import { checkCollision } from './movement.js';
 // import { initLoaders } from './loadersSetup.js';
 // import { lightingSetup } from './lightingSetup.js';
 // import { objectTexture } from '/modules/utility.js';
 // import { setUpBoundingBox } from './utility.js';
+// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 // //////////////////////////////////////////////////////////////////////////////
 
@@ -91,18 +94,57 @@ controls.enableDamping = true; // an animation loop is required when either damp
 
 // loadGLTFModel(scene, '../models/mossy_water_fountain_free__agustin_honnun/scene.gltf', onLoadFunction, onProgressFunction, onErrorFunction);
 
-// loadGLTFModel(scene, '../models/mossy_water_fountain_free__agustin_honnun/scene.gltf',
-//     (gltf) => {
-//         console.log('Model loaded', gltf);
-//         // Set the scale of the model
-//         gltf.scene.scale.set(0.5, 0.5, 0.5);
-//         // Set the position of the model
-//         gltf.scene.position.set(0, 0, 0);
-//         // Add the model to the scene
-//         scene.add(gltf.scene);
-//     },
-//     (xhr) => { console.log((xhr.loaded / xhr.total * 100) + '% loaded'); },
-//     (error) => { console.error('Error loading model', error); }
-// );
+
+// Assuming texture paths
+const baseColorPath = '../models/mossy_water_fountain_free__agustin_honnun/textures/Fountain_Material_baseColor.png';
+const metallicRoughnessPath = '../models/mossy_water_fountain_free__agustin_honnun/textures/Fountain_Material_metallicRoughness.png';
+const normalPath = '../models/mossy_water_fountain_free__agustin_honnun/textures/Fountain_Material_normal.png';
+
+// Load textures
+const textureLoader = new THREE.TextureLoader();
+const baseColorTexture = textureLoader.load(baseColorPath);
+const metallicRoughnessTexture = textureLoader.load(metallicRoughnessPath);
+const normalTexture = textureLoader.load(normalPath);
+
+loadGLTFModel(scene, '../models/mossy_water_fountain_free__agustin_honnun/scene.gltf',
+    (gltf) => {
+        console.log('Model loaded', gltf);
+
+        // Add the model to the scene
+        scene.add(gltf.scene);
 
 
+        // Set the scale of the model
+        gltf.scene.scale.set(0.02, 0.02, 0.02);
+        // Set the position of the model
+        gltf.scene.position.set(0, -2, 0);
+
+        // Apply textures to the model
+        model.traverse((child) => {
+            if (child.isMesh) {
+                child.material = new THREE.MeshStandardMaterial({
+                    map: baseColorTexture,
+                    metalnessMap: metallicRoughnessTexture,
+                    roughnessMap: metallicRoughnessTexture,
+                    normalMap: normalTexture
+                });
+            }
+        });
+    },
+    (xhr) => { console.log((xhr.loaded / xhr.total * 100) + '% loaded'); },
+    (error) => { console.error('Error loading model', error); }
+);
+
+// const gltfFountain = new GLTFLoader();
+
+// gltfFountain.load('../models/mossy_water_fountain_free__agustin_honnun/scene.gltf', (gltf) => {
+//     const model = gltf.scene;
+
+//     // Set the scale of the model
+//     model.scale.set(0.1, 0.1, 0.1);
+//     // Set the position of the model
+//     model.position.set(0, -30, 0);
+
+//     scene.add(model);
+
+// });

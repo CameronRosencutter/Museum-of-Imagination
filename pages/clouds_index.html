@@ -43,13 +43,13 @@
 
     <!-- THREE.js -->
     <script type="importmap">
-{
-"imports": {
-    "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
-    "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
-}
-}
-</script>
+        {
+        "imports": {
+        "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
+        }
+        }
+        </script>
 </head>
 
 <body>
@@ -60,7 +60,7 @@
     </div>
 
     <!-- Menu attached to room  -->
-    <div id="menu-div" class="d-flex container-fluid justify-content-center col-12 py-5">
+    <div id="menu" class="d-flex container-fluid justify-content-center col-12 py-5">
 
         <!-- Card for Room 1  -->
         <div class="card text-center text-primary bg-dark " style="width:350px">
@@ -76,7 +76,7 @@
                 <p>Click Mouse - Look Around</p>
 
                 <div id="playButton" class=''>
-                    <a href="./indexGallery.html"
+                    <a id="play-button1" href="./indexGallery.html"
                         class="btn btn-block btn-link stretched-link text-light font-weight-bold btn-outline-primary rounded-circle ">Enter
                         The
                         Museum of
@@ -87,9 +87,12 @@
 
         <!-- Card for Room 2  -->
 
-        <div class="card text-center text-primary audio_controls" style="width:350px">
-            <button id="start_audio">Start Audio Guide</button>
-            <button id="stop_audio">Stop Audio Guide</button>
+        <div id="menu-div" class=" audio_controls">
+            <button id="start_audio" onclick="audioStart()">Start Audio Guide</button>
+
+            <button id="pause_audio" onclick="audioPause()">Pause Audio Guide</button>
+
+            <button id="stop_audio" onclick="audioStop()">Stop Audio Guide</button>
         </div>
 
         <div class="card text-center text-primary bg-dark " style="width:350px">
@@ -105,7 +108,7 @@
                 <p>Click Mouse - Look Around</p>
 
                 <div id="playButton" class=''>
-                    <a href="./museumExhibit1.html"
+                    <a id="play-button2" href="./museumExhibit1.html"
                         class="btn btn-block btn-link stretched-link text-light font-weight-bold btn-outline-primary rounded-circle ">Enter
                         The Model and Art
                         Gallery</a>
@@ -114,7 +117,7 @@
             </div>
         </div>
     </div>
-
+    <script type="module" src="/scripts/modules/1_galleryApp.js"></script>
 </body>
 
 </html>

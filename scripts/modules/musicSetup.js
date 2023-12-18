@@ -24,7 +24,7 @@ export const audioSetup = (camera) => {
         // set the audio source to loop
         sound.setLoop(true);
         // set the audio source to autoplay
-        sound.setVolume(1.5);
+        sound.setVolume(10);
         // set to true when audio buffer is loaded
         bufferLoaded = true;
     });
@@ -40,10 +40,19 @@ export const audioStart = () => {
 };
 
 // pause audio
-export const audioStop = () => {
+export const audioPause = () => {
     // if playing,
     if (sound) {
         // pause the audio
         sound.pause();
+    }
+};
+
+// stop audio
+export const audioStop = () => {
+    // if playing,
+    if (sound) {
+        // stop the audio
+        sound.stop();
     }
 };

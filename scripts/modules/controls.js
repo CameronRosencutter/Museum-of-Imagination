@@ -9,14 +9,42 @@ export function initControls(camera, renderer) {
     // Pointer Lock Controls
     const cursorControls = new PointerLockControls(camera, renderer.domElement);
 
+    // show menu
+    const menu = document.getElementById('menu-div');
+
+    const showMenu = () => {
+        menu.style.display = 'block';
+    }
+
+    const hideMenu = () => {
+        menu.style.display = 'none';
+    }
+
+    const playButton = document.getElementById('play-button');
+    playButton.addEventListener('click', () => {
+        hideMenu();
+        cursorControls.lock();
+    });
+
+    // // start experience
+    // startExperience = () => {
+    //     hideMenu();
+    //     cursorControls.lock();
+    // }
+
+
+    // show instructions
+
     // function to toggle pointer lock state
     function togglePointerLock() {
         if (cursorControls.isLocked === true) {
             cursorControls.unlock();
             cursorControls.addEventListener('unlock', () => console.log('Pointer Unlocked.'));
+            showMenu();
         } else {
             cursorControls.lock();
             cursorControls.addEventListener('lock', () => console.log('Pointer Locked.'));
+            hideMenu();
         }
     }
     // Add event listener to lock the pointer
