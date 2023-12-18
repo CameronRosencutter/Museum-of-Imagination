@@ -53,8 +53,12 @@
   </head>
   <body class="body">
     <header class="header">
+      <!-- This is where the navbar at the top is. It is size friendly,
+      being able to adapt on different sized screens. The Scss/Sass files are
+      located in Styles/_navbar.scss. If you alter anything, please keep in mind that
+    you may need the 'Watch Sass' extension for changes to be made automatically.-->
       <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#"><img src="Images\mainlogo.png" width="90px" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <img src="Images\hamicon.png"  width="50px">
         </button>
@@ -67,42 +71,50 @@
           </div>
         </div>
       </nav>
+    </header>
         <div>
+          <!--This is the main building. When you hover over a window, an image is revealed.
+          The amount of windows decrease as the webpage gets smaller to accomadate. The Sass/Scss files
+        are located in Styles/Homepage/_mainbuilding.scss   . -->
             <div class="buildinggallery p-2">
                 <div class='building container p-2'>
                     <div class="buildingrow container mb-5 mt-5 mx-auto row">
                         <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6"><img src="Images\screen.png" class="mx-auto d-block frontimage"  alt=""><img src="Images\floatingcityicon.png" class="mx-auto d-block backimage" alt="" ></div>
-                        <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6"><img src="Images\screen.png" class="mx-auto frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon copy 6.png" class="mx-auto d-block backimage" alt=""></div>
-                        <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-none d-md-block"><img src="Images\screen.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon copy 4.png" class="mx-auto d-block backimage" alt=""></div>
-                        <div class="imagebox col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 d-none d-lg-block"><img src="Images\screen.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\floatingcityicon copy.png" class="mx-auto d-block backimage" alt=""></div>
+                        <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6"><img src="Images\screen 1.png" class="mx-auto frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon copy 6.png" class="mx-auto d-block backimage" alt=""></div>
+                        <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-none d-md-block"><img src="Images\screen 1.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon copy 4.png" class="mx-auto d-block backimage" alt=""></div>
+                        <div class="imagebox col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 d-none d-lg-block"><img src="Images\screen 4.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\floatingcityicon copy.png" class="mx-auto d-block backimage" alt=""></div>
                     </div>
                     <div class="buildingrow container mb-5 mx-auto row">
-                      <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6"><img src="Images\screen.png" class="mx-auto d-block frontimage"  alt=""><img src="Images\buildingicons\floatingcityicon copy 2.png" class="mx-auto d-block backimage" alt="" ></div>
+                      <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6"><img src="Images\screen 3.png" class="mx-auto d-block frontimage"  alt=""><img src="Images\buildingicons\floatingcityicon copy 2.png" class="mx-auto d-block backimage" alt="" ></div>
                       <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6"><img src="Images\screen.png" class="mx-auto frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon5.png" class="mx-auto d-block backimage" alt=""></div>
-                      <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-none d-md-block"><img src="Images\screen.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon1.png" class="mx-auto d-block backimage" alt=""></div>
-                      <div class="imagebox col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 d-none d-lg-block"><img src="Images\screen.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon2.png" class="mx-auto d-block backimage" alt=""></div>
+                      <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-none d-md-block"><img src="Images\screen 3.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon1.png" class="mx-auto d-block backimage" alt=""></div>
+                      <div class="imagebox col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 d-none d-lg-block"><img src="Images\screen 4.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon2.png" class="mx-auto d-block backimage" alt=""></div>
                   </div>
                   <div class="buildingrow container mb-5 mx-auto row">
-                    <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6"><img src="Images\screen.png" class="mx-auto d-block frontimage"  alt=""><img src="Images\buildingicons\buildingicon5_1.png" class="mx-auto d-block backimage" alt="" ></div>
-                    <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6"><img src="Images\screen.png" class="mx-auto frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon copy 7.png" class="mx-auto d-block backimage" alt=""></div>
+                    <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6"><img src="Images\screen 4.png" class="mx-auto d-block frontimage"  alt=""><img src="Images\buildingicons\buildingicon5_1.png" class="mx-auto d-block backimage" alt="" ></div>
+                    <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6"><img src="Images\screen 4.png" class="mx-auto frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon copy 7.png" class="mx-auto d-block backimage" alt=""></div>
                     <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-none d-md-block"><img src="Images\screen.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon copy 9.png" class="mx-auto d-block backimage" alt=""></div>
-                    <div class="imagebox col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 d-none d-lg-block"><img src="Images\screen.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon copy 11.png" class="mx-auto d-block backimage" alt=""></div>
+                    <div class="imagebox col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 d-none d-lg-block"><img src="Images\screen 3.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon copy 11.png" class="mx-auto d-block backimage" alt=""></div>
                 </div>
                 <div class="buildingrow container mb-5 mx-auto row">
                   <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6"><img src="Images\screen.png" class="mx-auto d-block frontimage"  alt=""><img src="Images\buildingicons\buildingicon.png" class="mx-auto d-block backimage" alt="" ></div>
-                  <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6"><img src="Images\screen.png" class="mx-auto frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon3.png" class="mx-auto d-block backimage" alt=""></div>
+                  <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6"><img src="Images\screen 4.png" class="mx-auto frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon3.png" class="mx-auto d-block backimage" alt=""></div>
                   <div class="imagebox col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6 d-none d-md-block"><img src="Images\screen.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\floatingcityicon.png" class="mx-auto d-block backimage" alt=""></div>
-                  <div class="imagebox col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 d-none d-lg-block"><img src="Images\screen.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon copy 5.png" class="mx-auto d-block backimage" alt=""></div>
+                  <div class="imagebox col-lg-3 col-md-3 col-sm-6 col-xs-6 col-6 d-none d-lg-block"><img src="Images\screen 3.png" class="mx-auto d-block frontimage" width="180px" alt=""><img src="Images\buildingicons\buildingicon copy 5.png" class="mx-auto d-block backimage" alt=""></div>
               </div>  
             </div>
           </div>
         </div>
         <section class="entersection">
+          <!--This the mueseum section. When you hover over it, it will light up and open the doors.
+          When you click on it, you can "enter" and get taken to a 3D tour. The Sass/Scss files are in
+        Styles/Homepage/_enter.scss  .  Also it contains brief info about the Mueseum down below.-->
           <div class="wrapper ">
             <div class="container">
               <div class="Museum">
                 <p></p>
-                <img src="Images\Museumopen.png" width="80%" height="100%" alt="">
+                <img class="closed" src="Images\Museumclose.png" width="80%" height="100%" alt="">
+                <img class="open" src="Images\Museumopen.png" width="80%" height="100%" alt="">
               </div>
               <div>
                 <img src="Images\Artboard 35.png"  width="100%">
@@ -116,6 +128,59 @@
             </div>
           </div>
         </section>
-    </header>
+        <section class="whatwedosection">
+          <!--This is the what we do section. It demonstrates how the mueseum gets new buildings.
+          There are 4 cards that explain the system. The Sass/Scss code is in Styles/Homepage/_whatwedo.scss  .-->
+          <h1>What we do</h1>
+          <div class="whatwedo p-5">
+            <div class="card-deck">
+              <div class="card">
+                <img class="card-img-top" src="Images\be321f93-c5d2-4640-850f-6f24b08018bbjpg.webp" alt="Card image cap" width="200px">
+                <div class="card-body">
+                  <h5 class="card-title">Discover</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="Images\00138817-e4b3-4ab8-ad03-e7f963c4097f.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Research</h5>
+                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="Images\319046ed-cf78-4216-b961-a51ad48faed9.jpg" alt="Card image cap" width="200px">
+                <div class="card-body">
+                  <h5 class="card-title">Implement</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="Images\587dc2eb-0fc4-484b-a87a-305c908637d2.jpg" alt="Card image cap" width="200px">
+                <div class="card-body">
+                  <h5 class="card-title">Implement</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </section>
+        <footer>
+          <!--This is the footer. Its relatively simple, with some icons and info. The Scss/Sass files are
+          in Styles/_footer.scss   .-->
+          <div class="container">
+            <footer class="py-3 p-5">
+              <ul class="nav justify-content-center border-bottom">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary text-white">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary text-white">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary text-white">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary text-white">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary text-white">About</a></li>
+              </ul>
+              <p class="text-center text-body-secondary text-white">Museum of Imagination</p>
+            </footer>
+          </div>
+        </footer>
   </body>
 </html>
