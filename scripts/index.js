@@ -86,25 +86,25 @@ scene.add(ambientLight);
 
 // directional light - shines in a specific direction
 // color, intensity, distance, decay
-// let directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
-// directionalLight.position.set(20, 100, 10);
-// directionalLight.target.position.set(0, 0, 0);
-// directionalLight.castShadow = true;
-// directionalLight.shadow.bias = -0.001;
-// directionalLight.shadow.mapSize.width = 2048;
-// directionalLight.shadow.mapSize.height = 2048;
-// directionalLight.shadow.camera.near = 0.1;
-// directionalLight.shadow.camera.far = 500.0;
-// directionalLight.shadow.camera.near = 0.5;
-// directionalLight.shadow.camera.far = 500.0;
-// directionalLight.shadow.camera.left = 100;
-// directionalLight.shadow.camera.right = -100;
-// directionalLight.shadow.camera.top = 100;
-// directionalLight.shadow.camera.bottom = -100;
-// scene.add(directionalLight);
+let directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
+directionalLight.position.set(20, 100, 10);
+directionalLight.target.position.set(0, 0, 0);
+directionalLight.castShadow = true;
+directionalLight.shadow.bias = -0.001;
+directionalLight.shadow.mapSize.width = 2048;
+directionalLight.shadow.mapSize.height = 2048;
+directionalLight.shadow.camera.near = 0.1;
+directionalLight.shadow.camera.far = 500.0;
+directionalLight.shadow.camera.near = 0.5;
+directionalLight.shadow.camera.far = 500.0;
+directionalLight.shadow.camera.left = 100;
+directionalLight.shadow.camera.right = -100;
+directionalLight.shadow.camera.top = 100;
+directionalLight.shadow.camera.bottom = -100;
+scene.add(directionalLight);
 
 // set position to directional light - y axis above the scene - shines down
-// directionalLight.position.y = 50;
+directionalLight.position.y = 50;
 
 // set a pointer light to follow the camera around
 // color, intensity, distance, decay
@@ -308,7 +308,7 @@ scene.add(floorPlane);
 // floorPlane.material.map = objectTexture('../images/artGallery1Index/astronomy.png'); // map for texture update
 
 // set position of floor
-floorPlane.rotation.x = Math.PI / -2; // 90 degree clockwise
+floorPlane.rotation.x = Math.PI / 2; // 90 degree clockwise
 floorPlane.position.y = -Math.PI / 2; // 180 degree clockwise
 
 // add a bounding box for collisions
@@ -468,19 +468,19 @@ function animate() {
     // // Set the position of the light to the camera's position
     // pointLight.position.copy(camera.position);
 
-    // cube rotation - x, y, z
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
+    // // cube rotation - x, y, z
+    // cube.rotation.x += 0.01;
+    // cube.rotation.y += 0.01;
 
     // Rotate the dome about the vertical axis (Y-axis)
-    dome.rotation.y += 0.0009; // Adjust the speed as needed
+    dome.rotation.y += 0.0003; // Adjust the speed as needed
 
-    // polyhedron rotation - x, y, z
-    polyhedron.rotation.x += -0.001;
-    polyhedron.rotation.y += -0.001;
+    // // polyhedron rotation - x, y, z
+    // polyhedron.rotation.x += -0.001;
+    // polyhedron.rotation.y += -0.001;
 
-    // bounce the cube up and down
-    cube.position.y = Math.abs(Math.sin(Date.now() * 0.002)) * 20;
+    // // bounce the cube up and down
+    // cube.position.y = Math.abs(Math.sin(Date.now() * 0.002)) * 20;
 
 
 

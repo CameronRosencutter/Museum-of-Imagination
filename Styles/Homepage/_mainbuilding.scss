@@ -1,7 +1,7 @@
 .buildinggallery {
-    background-color:#52688F;
+    background-color: #52688F;
 
-    .building{
+    .building {
         background-color: #071330;
         outline: 5px solid;
         margin: auto;
@@ -15,8 +15,9 @@
             .imagebox {
                 position: block;
 
-                
-                .frontimage, .backimage {
+
+                .frontimage,
+                .backimage {
                     border-top: #D5DEED 5px solid;
                     border-right: #D5DEED 5px solid;
                     border-bottom: #52688F 5px solid;
@@ -28,7 +29,8 @@
                     height: 200px;
                     width: 200px;
                     transform: translate(-50%, -50%);
-                    transition: opacity 0.8s ease-in-out; /* Add a smooth transition for opacity change */
+                    transition: opacity 0.8s ease-in-out;
+                    /* Add a smooth transition for opacity change */
                 }
 
                 .frontimage {
@@ -36,17 +38,17 @@
                 }
 
                 .frontimage:hover {
-                    opacity: 0.2;
-                    box-shadow: 0 0 18px 1px #f0ba08;
-                    
+                    opacity: 0.0;
+                    // box-shadow: 0 0 18px 1px #f0ba08;
+                    box-shadow: 0 0 18px 1px #f4ebcb;
                 }
-            
+
                 .backimage {
-                    z-index:1;
-                    opacity: 1; /* Initially hide the backimage */
+                    z-index: 1;
+                    opacity: 1;
+                    /* Initially hide the backimage */
                 }
             }
         }
     }
 }
-

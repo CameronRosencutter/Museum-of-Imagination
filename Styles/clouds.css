@@ -27,16 +27,6 @@ body {
     z-index: -1;
 }
 
-/* .container_clouds2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    z-index: 3;
-} */
 
 .cloud {
     position: absolute;
@@ -46,23 +36,12 @@ body {
     height: 100vh;
     background: url(../Images/assets/cloud_s.bmp) repeat;
     background-size: cover;
-    animation: animate 60s linear infinite;
-    opacity: 0.1;
+    animation: animate 80s linear infinite;
+    opacity: 0.3;
     z-index: -1;
 }
 
-.cloud2 {
-    position: absolute;
 
-    left: 0;
-    width: 100%;
-    height: 200vh;
-    background: url(../Images/assets/cloud_s.bmp) repeat;
-    background-size: cover;
-    animation: animate 100s linear infinite;
-    opacity: 0.1;
-    z-index: 2;
-}
 
 @keyframes animate {
     0% {
@@ -74,19 +53,35 @@ body {
     }
 }
 
+/* CLOUDS FOR HOMEPAGE */
+
+.cloud2 {
+    position: absolute;
+
+    left: 0;
+    width: 100%;
+    height: 132vh;
+    background: url(../Images/assets/cloud_s.bmp) repeat;
+    background-size: cover;
+    animation: animate 110s linear infinite;
+    opacity: 0.3;
+    z-index: 2;
+}
+
 .museum_img {
     z-index: 1;
 }
 
+/* FOR HOMEPAGE BUILDING TO MAINTAIN FOCUS ABOVE CLOUDS */
 .building {
     position: relative;
     outline: 5px solid;
     margin: auto;
     padding: 10px;
     z-index: 5;
-
 }
 
+/* FOR HOMEPAGE BUILDING TO MAINTAIN FOCUS ABOVE CLOUDS */
 .Museum {
     z-index: 2;
     position: relative;
@@ -94,59 +89,46 @@ body {
 
 /* Example media queries for different screen widths */
 
-/* For screens wider than 600px */
-/* For screens wider than 800px */
-@media (min-width: 300px) {
-    .cloud2 {
-        height: 240vh;
-        /* Further decrease height */
-    }
+
+
+
+
+
+
+/* .buildinggallery .building .buildingrow .imagebox .frontimage:nth-child(odd) {
+    animation: blink 15s infinite 5s;
+} */
+
+
+.audio_controls {
+    background-color: rgb(26, 60, 160);
+    z-index: 2;
+    /* To make sure it shows up on top of other elements */
 }
 
-/* For screens wider than 800px */
-@media (min-width: 500px) {
-    .cloud2 {
-        height: 250vh;
-        /* Further decrease height */
-    }
+.audio_controls button {
+    display: block;
+    background-color: rgba(35, 37, 88, 0.8);
+    color: #d6d31e;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-@media (min-width: 600px) {
-    .cloud2 {
-        height: 260vh;
-        /* Decrease height */
-    }
+.audio_controls button:hover {
+    background-color: rgba(209, 201, 44, 0.8);
+    color: rgba(35, 37, 88, 0.8);
 }
 
-/* For screens wider than 800px */
-@media (min-width: 700px) {
-    .cloud2 {
-        height: 270vh;
-        /* Further decrease height */
-    }
-}
-
-/* For screens wider than 800px */
-@media (min-width: 800px) {
-    .cloud2 {
-        height: 280vh;
-        /* Further decrease height */
-    }
-}
-
-
-@media (min-width: 900px) {
-    .cloud2 {
-        height: 280vh;
-        /* Even more decrease */
-    }
-
-}
-
-/* For screens wider than 1000px */
-@media (min-width: 1000px) {
-    .cloud2 {
-        height: 220vh;
-        /* Even more decrease */
-    }
+#menu-div {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

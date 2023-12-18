@@ -71,7 +71,7 @@ function main() {
         const rt = new THREE.WebGLCubeRenderTarget(texture.image.height)
         rt.fromEquirectangularTexture(renderer, texture);
         texture.colorSpace = THREE.SRGBColorSpace;
-        texture.minFilter = THREE.LinearMipMapLinearFilter; // Use mipmapping for better performance
+        // texture.minFilter = THREE.LinearMipMapLinearFilter; // Use mipmapping for better performance
 
         scene.background = rt.texture;
     });
@@ -165,8 +165,8 @@ function main() {
         const objectTexture = new THREE.TextureLoader().load(url);
         objectTexture.wrapS = THREE.RepeatWrapping;
         objectTexture.wrapT = THREE.RepeatWrapping;
-        objectTexture.minFilter = THREE.LinearMipMapLinearFilter;
-        objectTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+        // objectTexture.minFilter = THREE.LinearMipMapLinearFilter;
+        // objectTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
 
         objectTexture.colorSpace = THREE.SRGBColorSpace;
 
@@ -196,8 +196,7 @@ function main() {
     floorTexture.wrapS = THREE.RepeatWrapping;
     floorTexture.wrapT = THREE.RepeatWrapping;
     floorTexture.repeat.set(20, 20);
-    floorTexture.minFilter = THREE.LinearMipMapLinearFilter; // Use mipmapping for better performance
-    floorTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+
     floorTexture.colorSpace = THREE.SRGBColorSpace;
 
     // create plane geometry
@@ -337,8 +336,8 @@ function main() {
         const textureLoader = new THREE.TextureLoader();
         const paintingTexture = textureLoader.load(imageUrl);
         paintingTexture.colorSpace = THREE.SRGBColorSpace;
-        paintingTexture.minFilter = THREE.LinearMipMapLinearFilter; // Use mipmapping for better performance
-        paintingTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+        // paintingTexture.minFilter = THREE.LinearMipMapLinearFilter; // Use mipmapping for better performance
+        // paintingTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
 
         const paintingGeometry = new THREE.PlaneGeometry(width, height);
 
