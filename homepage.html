@@ -53,6 +53,10 @@
   </head>
   <body class="body">
     <header class="header">
+      <!-- This is where the navbar at the top is. It is size friendly,
+      being able to adapt on different sized screens. The Scss/Sass files are
+      located in Styles/_navbar.scss. If you alter anything, please keep in mind that
+    you may need the 'Watch Sass' extension for changes to be made automatically.-->
       <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#"><img src="Images\mainlogo.png" width="90px" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,6 +73,9 @@
       </nav>
     </header>
         <div>
+          <!--This is the main building. When you hover over a window, an image is revealed.
+          The amount of windows decrease as the webpage gets smaller to accomadate. The Sass/Scss files
+        are located in Styles/Homepage/_mainbuilding.scss   . -->
             <div class="buildinggallery p-2">
                 <div class='building container p-2'>
                     <div class="buildingrow container mb-5 mt-5 mx-auto row">
@@ -99,6 +106,9 @@
           </div>
         </div>
         <section class="entersection">
+          <!--This the mueseum section. When you hover over it, it will light up and open the doors.
+          When you click on it, you can "enter" and get taken to a 3D tour. The Sass/Scss files are in
+        Styles/Homepage/_enter.scss  .  Also it contains brief info about the Mueseum down below.-->
           <div class="wrapper ">
             <div class="container">
               <div class="Museum">
@@ -119,6 +129,8 @@
           </div>
         </section>
         <section class="whatwedosection">
+          <!--This is the what we do section. It demonstrates how the mueseum gets new buildings.
+          There are 4 cards that explain the system. The Sass/Scss code is in Styles/Homepage/_whatwedo.scss  .-->
           <h1>What we do</h1>
           <div class="whatwedo p-5">
             <div class="card-deck">
@@ -155,6 +167,8 @@
         </div>
         </section>
         <footer>
+          <!--This is the footer. Its relatively simple, with some icons and info. The Scss/Sass files are
+          in Styles/_footer.scss   .-->
           <div class="container">
             <footer class="py-3 p-5">
               <ul class="nav justify-content-center border-bottom">
