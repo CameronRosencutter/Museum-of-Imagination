@@ -16,6 +16,33 @@ function isInViewport(element) {
     });
   });
 
+   // Event listener for the scroll event to check for elements in the viewport
+   document.addEventListener('scroll', function () {
+    document.querySelectorAll('.reveal2').forEach(function (element) {
+      if (isInViewport(element)) {
+        element.classList.add('active');
+      }
+    });
+  });
+
+    // Event listener for the scroll event to check for elements in the viewport
+    document.addEventListener('scroll', function () {
+      document.querySelectorAll('.reveal3').forEach(function (element) {
+        if (isInViewport(element)) {
+          element.classList.add('active');
+        }
+      });
+    });
+
+     // Event listener for the scroll event to check for elements in the viewport
+     document.addEventListener('scroll', function () {
+      document.querySelectorAll('.reveal4').forEach(function (element) {
+        if (isInViewport(element)) {
+          element.classList.add('active');
+        }
+      });
+    });
+
   //for trees
   function 
   isInViewport(element) {

@@ -261,6 +261,8 @@ Footer {
 }/*# sourceMappingURL=styles.css.map */
 
 /*reveal for cards*/
+
+/* card one */
 .reveal {
   position: relative;
   transform: translateY(150px);
@@ -272,6 +274,47 @@ Footer {
   transform: translateY(0);
   opacity: 1;
 }
+
+/* card 2 */
+.reveal2 {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 8s ease;
+}
+
+.reveal2.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+/* card 3 */
+.reveal3 {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 10s ease;
+}
+
+.reveal3.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* card 4 */
+.reveal4 {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 12s ease;
+}
+
+.reveal4.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 
 /*reveal for trees*/
 .treereveal {
@@ -298,7 +341,7 @@ Footer {
   top: 120;
   left: 0;
   width: 100%; /* This will cover the museum image */
-  height: 90%; /* Adjust the height to fit as an overlay */
+  height: -70%; /* Adjust the height to fit as an overlay */
   z-index: 10; /* This will ensure the trees are on top */
   }
 
