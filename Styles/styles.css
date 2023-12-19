@@ -235,13 +235,16 @@ header .navbar a:hover {
   transition: 0.5s ease-in-out;
   transition: opacity 0.8s ease-in-out;
 }
+
 .entersection .container .Museum .open {
   display: none;
 }
+
 .entersection .container .Museum .closed:hover {
   display: none;
 }
-.entersection .container .Museum .closed:hover + .open {
+
+.entersection .container .Museum .closed:hover+.open {
   display: block;
 }
 
@@ -272,21 +275,20 @@ header .navbar a:hover {
   font-size: 20px;
 }
 
-<<<<<<< HEAD
-/*# sourceMappingURL=styles.css.map */
-=======
 .whatwedo {
   padding: 30px;
   display: flex;
   justify-content: center;
   background-color: #071330;
 }
+
 .whatwedo .card {
   outline: solid 3px rgb(255, 255, 255);
   background-color: #d0daec;
   min-width: 100px;
   max-width: 350px;
 }
+
 .whatwedo .card .panel {
   outline: green solid 3px;
 }
@@ -296,6 +298,7 @@ header .navbar a:hover {
   text-align: center;
   background-color: #071330;
 }
+
 .whatwedosection h1 {
   color: white;
   font-size: 50px;
@@ -311,5 +314,6 @@ body {
 Footer {
   background-color: #071330;
   color: white;
-}/*# sourceMappingURL=styles.css.map */
->>>>>>> a2f179c6cd8ff887933c443a4fa1e8a3f79d5350
+}
+
+/*# sourceMappingURL=styles.css.map */
