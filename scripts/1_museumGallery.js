@@ -3,6 +3,8 @@ import * as THREE from 'three';
 import { PointerLockControls } from '/node_modules/three/examples/jsm/controls/PointerLockControls.js';
 // // imports for add ons to THREE
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+// import { audioPause, audioSetup, audioStart, audioStop } from '/scripts/modules/musicSetup.js';
+// import { initLoader} from 'modules/loaderSetup.js';
 
 console.log("THREE object is loaded 😄, here is the THREE object: ", THREE);
 /**
@@ -32,6 +34,7 @@ const camera = new THREE.PerspectiveCamera(
     0.1, // near plane
     1000); // far plane
 
+
 // renderer creates CANVAS sets size and adds element in DOM
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -52,9 +55,10 @@ loader.load(imgUrl3, (texture) => {
 // add camera to scene
 scene.add(camera);
 
+
 // move the camera back 5 units on the z axis so we can see the scene position
-camera.position.z = 10;
-camera.position.y = 2;
+camera.position.z = 5;
+camera.position.y = 3;
 
 function onWindowResize() {
     // update camera aspect ratio
@@ -66,7 +70,6 @@ function onWindowResize() {
 }
 
 window.addEventListener('resize', onWindowResize, false);
-
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -129,40 +132,34 @@ scene.add(spotLight);
 // CONTROLS
 /////////////////////////////////////////////////////////////////////////////
 
-// function showMenu() {
-//     const menu = document.getElementById('menu');
-//     menu.style.display = 'block';
-// }
+// ADD CONTROLS TO MOVE with mouse
 
-// function hideMenu() {
-//     const menu = document.getElementById('menu');
-//     menu.style.display = 'none';
-// }
+function showMenu() {
+    const menu = document.getElementById('menu');
+    menu.style.display = 'block';
+}
+
+function hideMenu() {
+    const menu = document.getElementById('menu');
+    menu.style.display = 'none';
+}
 
 // ADD CONTROLS TO MOVE with mouse
 const cursorControls = new PointerLockControls(camera, renderer.domElement);
 
-// // At the start, after setting up the camera
-// const defaultPosition = new THREE.Vector3().copy(camera.position);
-// const defaultRotation = new THREE.Euler().copy(camera.rotation);
-
-cursorControls.addEventListener('unlock', () => {
-    console.log('Pointer Unlocked.');
-    // camera.position.copy(defaultPosition);
-    // camera.rotation.copy(defaultRotation);
-});
 renderer.domElement.addEventListener('click', () => {
     if (cursorControls.isLocked === true) {
         cursorControls.unlock();
-        // showMenu();
+        showMenu();
     } else {
         cursorControls.lock();
-        // hideMenu();
+        hideMenu();
     }
 });
 
 cursorControls.addEventListener('lock', () => console.log('Pointer Locked.'));
 cursorControls.addEventListener('unlock', () => console.log('Pointer Unlocked.'));
+
 
 // ADD CONTROLS TO MOVE with arrows and w, a, s, d
 
@@ -173,48 +170,103 @@ document.addEventListener('keydown', onKeyDown, true);
 function onKeyDown(event) {
     let keycode = event.which;
 
-    if (keycode === 39 || keycode === 68) // right arrow key
-    {
-        // camera.translateX( 0.05 );
-        camera.translateX(0.12);
-    }
-    if (keycode === 37 || keycode === 65) // left arrow key
-    {
-        // camera.translateX( -0.05 );
-        camera.translateX(-0.12);
-    }
-    if (keycode === 38 || keycode === 87) // up arrow key
-    {
-        camera.translateZ(-0.15);
 
+    // Right arrow key or 'D' key
+    if (keycode === 39 || keycode === 68) {
+        camera.translateX(0.15);
     }
-    else if (keycode === 40 || keycode === 83) // down arrow key
-    {
-        camera.translateZ(0.12);
+
+    // Left arrow key or 'A' key
+    if (keycode === 37 || keycode === 65) {
+        camera.translateX(-0.15);
+    }
+
+    // Up arrow key or 'W' key
+    if (keycode === 38 || keycode === 87) {
+        event.preventDefault();
+        // Prevents the default action (scrolling in this case)
+        camera.translateZ(-0.15);
+    }
+
+    // if the "Q key is pressed
+    if (keycode === 81) {
+        // rotate camera to the left
+        camera.rotateY(0.15);
+    }
+
+    // if the "E" key is pressed
+    if (keycode === 69) {
+        // rotate camera to the right
+        camera.rotateY(-0.15);
+    }
+
+    // Down arrow key or 'S' key
+    if (keycode === 40 || keycode === 83) {
+        // Prevents the default action (scrolling in this case)
+        camera.translateZ(0.15);
+    }
+
+    // // if the "SPACE" key is pressed
+    // if (keycode === 32) {
+    //     event.preventDefault();
+    //     // Replace with your desired URL
+    //     window.location.href = 'https://github.com/CameronRosencutter/Museum-of-Imagination';
+    // }
+
+    // Escape key
+    if (keycode === 27) {
+        showMenu();
 
     }
 }
 
+// touch test
+
+let lastTouchX, lastTouchY;
+
+function onTouchStart(event) {
+    lastTouchX = event.touches[0].clientX;
+    lastTouchY = event.touches[0].clientY;
+}
+
+function onTouchMove(event) {
+    event.preventDefault(); // Prevents default touch actions like scrolling
+
+    const touchX = event.touches[0].clientX;
+    const touchY = event.touches[0].clientY;
+
+    const deltaX = touchX - lastTouchX;
+    const deltaY = touchY - lastTouchY;
+
+    // Rotate the camera
+    rotateCamera(deltaX, deltaY);
+
+    lastTouchX = touchX;
+    lastTouchY = touchY;
+}
+
+// Attach event listeners
+renderer.domElement.addEventListener('touchstart', onTouchStart, false);
+renderer.domElement.addEventListener('touchmove', onTouchMove, false);
+
+
+function rotateCamera(deltaX, deltaY) {
+    const rotationSpeed = 0.005; // Adjust this value to control rotation speed
+
+    // Calculate rotation around y-axis (left/right movement)
+    camera.rotation.y += deltaX * rotationSpeed;
+
+    // Calculate rotation around x-axis (up/down movement)
+    camera.rotation.x += deltaY * rotationSpeed;
+
+    // Optionally, you can limit the rotation to avoid flipping the scene upside down
+    camera.rotation.x = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, camera.rotation.x));
+}
+
+
 /////////////////////////////////////////////////////////////////////////////
 // CREATE OBJECTS
 /////////////////////////////////////////////////////////////////////////////
-
-// Create an object
-
-// creating a cube just to see the effects of the light
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-
-const material = new THREE.MeshStandardMaterial({
-    color: 0x0002f1,
-    roughness: 0.5,
-    metalness: 0.8,
-    emissive: 0x000000,
-    emissiveIntensity: 0.5
-});
-
-const cube = new THREE.Mesh(geometry, material);
-cube.position.set(0, 0, 0);
-scene.add(cube);
 
 //POLYHEDRON - a solid figure with many plane faces, typically more than six.
 // const geometry = new THREE.PolyhedronGeometry( vertices, indices, radius, detail );
@@ -234,7 +286,7 @@ const indicesOfFaces = [
 
 const geometryWorld = new THREE.PolyhedronGeometry(verticesOfCube, indicesOfFaces, 10, 20);
 
-const materialWorld = new THREE.MeshBasicMaterial({ color: 0x5f00ef, wireframe: true, wireframeLinewidth: 10, });
+const materialWorld = new THREE.MeshStandardMaterial({ color: 0x5f00ef, wireframe: true, wireframeLinewidth: 10, });
 
 const polyhedron = new THREE.Mesh(geometryWorld, materialWorld);
 scene.add(polyhedron);
@@ -255,6 +307,7 @@ scene.add(cubeSpotlight);
 // TEXTURE FUNCTION TO WRAP OBJECTS
 ///////////////////////////////////////////////////////////////////////////////
 
+
 function objectTexture(url) {
     const objectTexture = new THREE.TextureLoader().load(url);
     objectTexture.wrapS = THREE.RepeatWrapping;
@@ -270,8 +323,6 @@ function objectTexture(url) {
 /////////////////////////////////////////////////////////////////////////////
 // FLOOR with TEXTURES
 /////////////////////////////////////////////////////////////////////////////
-
-// add Textures to objects
 
 // create texture for floor
 
@@ -315,37 +366,35 @@ floorPlane.position.y = -Math.PI / 2; // 180 degree clockwise
 floorPlane.BBox = new THREE.Box3();
 floorPlane.BBox.setFromObject(floorPlane);
 
-// add a bounding box for collisions
-
-
 
 /////////////////////////////////////////////////////////////////////////////
 // CREATE WALLS - left wall, right wall, back wall, ceiling
 /////////////////////////////////////////////////////////////////////////////
 
+
 const wallGroup = new THREE.Group(); // create a group to hold the walls
 scene.add(wallGroup)
 
 const frontWall = new THREE.Mesh(
-    new THREE.BoxGeometry(50, 15, 0.005),
+    new THREE.BoxGeometry(50, 13, 0.005),
     new THREE.MeshBasicMaterial({ color: 0xaf00af })
 );
 frontWall.position.z = -25;
 
 const backWall = new THREE.Mesh(
-    new THREE.BoxGeometry(50, 15, 0.05),
+    new THREE.BoxGeometry(50, 13, 0.05),
     new THREE.MeshBasicMaterial({ color: 0x00afaf })
 );
 backWall.position.z = 25;
 
 const leftWall = new THREE.Mesh(
-    new THREE.BoxGeometry(0.001, 15, 50),
+    new THREE.BoxGeometry(0.001, 13, 50),
     new THREE.MeshBasicMaterial({ color: 0x00af02 })
 );
 leftWall.position.x = 25;
 
 const rightWall = new THREE.Mesh(
-    new THREE.BoxGeometry(0.001, 15, 50),
+    new THREE.BoxGeometry(0.001, 13, 50),
     new THREE.MeshBasicMaterial({ color: 0xffaa02 })
 );
 rightWall.position.x = -25;
@@ -367,7 +416,7 @@ backWall.material.map = objectTexture('../Images/assets/artGallery1Index/museum.
 
 leftWall.material.map = objectTexture('../Images/assets/artGallery1Index/castle.jpg');
 
-rightWall.material.map = objectTexture('../Images/assets/artGallery1Index/aigen-awe.png');
+rightWall.material.map = objectTexture('../Images/assets/artGallery1Index/castle.jpg');
 
 
 // // create ceiling
@@ -393,66 +442,282 @@ scene.add(dome);
 // CREATE PAINTINGS 
 /////////////////////////////////////////////////////////////////////////////
 
-function createPainting(imageUrl, width, height, position) {
-    const textureLoader = new THREE.TextureLoader();
-    const paintingTexture = textureLoader.load(imageUrl);
-    paintingTexture.colorSpace = THREE.SRGBColorSpace;
+// Create a plane
+export function createPainting(options) {
+    // Destructure options with default values
+    const {
+        width = 1,
+        height = 1,
+        color = 0xffffff,
+        textureUrl = null,
+        position = { x: 0, y: 0, z: 0 },
+        rotation = { x: 0, y: 0, z: 0 },
+        bBox = false, // Added this option for bounding box
+    } = options;
 
-    const paintingGeometry = new THREE.PlaneGeometry(width, height);
+    // Plane geometry
+    const geometry = new THREE.PlaneGeometry(width, height);
 
-    const paintingMaterial = new THREE.MeshBasicMaterial({
-        map: paintingTexture,
-        emissive: 0xffffff,
-        emissiveMap: paintingTexture,
-        side: THREE.DoubleSide,
+    // Material
+    let materialOptions = { color, side: THREE.DoubleSide };
+    if (textureUrl) {
+        // add objectTexture function from utility.js
+        const texture = objectTexture(textureUrl);
+        materialOptions.map = texture;
+    }
+    const material = new THREE.MeshBasicMaterial(materialOptions);
+
+    // Plane mesh
+    const plane = new THREE.Mesh(geometry, material);
+    plane.position.set(position.x, position.y, position.z);
+    plane.rotation.set(rotation.x, rotation.y, rotation.z);
+
+    // // Set up bounding box if needed
+    // if (options.bBox) {
+    //     setUpBoundingBox(plane);
+    // }
+
+    return plane;
+}
+
+
+// Paintings
+const painting1 = createPainting({ //left wall
+    width: 8,
+    height: 5,
+    textureUrl: '../Images/Museumopen.png',
+    position: { x: -24.99, y: 3, z: 20 },
+    rotation: { x: 0, y: Math.PI / 2, z: 0 },
+    bBox: true
+});
+scene.add(painting1);
+
+// Paintings
+const painting2 = createPainting({ // left wall
+    width: 8,
+    height: 5,
+    textureUrl: '../Images/cyberpunk.jpg',
+    position: { x: -24.99, y: 3, z: 10 },
+    rotation: { x: 0, y: Math.PI / 2, z: 0 },
+    bBox: true
+});
+scene.add(painting2);
+
+// Paintings
+const painting3 = createPainting({ // left wall
+    width: 8,
+    height: 5,
+    textureUrl: '../Images/assets/artGallery1Index/aigen-awe.png',
+    position: { x: -24.99, y: 3, z: 0 },
+    rotation: { x: 0, y: Math.PI / 2, z: 0 },
+    bBox: true
+});
+scene.add(painting3);
+
+// Paintings
+const painting4 = createPainting({ // left wall
+    width: 8,
+    height: 5,
+    textureUrl: '../Images/10d625ce-efe9-472e-95f8-63427368a9d9.jpg',
+    position: { x: -24.99, y: 3, z: -10 },
+    rotation: { x: 0, y: Math.PI / 2, z: 0 },
+    bBox: true
+});
+scene.add(painting4);
+
+// Paintings
+const painting5 = createPainting({ // left wall
+    width: 8,
+    height: 5,
+    textureUrl: '../Images/17d20236-9fe2-475b-b86f-5fd290b06068.jpg',
+    position: { x: -24.99, y: 3, z: -20 },
+    rotation: { x: 0, y: Math.PI / 2, z: 0 },
+    bBox: true
+});
+scene.add(painting5);
+
+const painting6 = createPainting({ // front wall
+    width: 8,
+    height: 5,
+    textureUrl: '../Images/80d4ece7-090e-45d0-b930-4b19c6b0601b.jpg',
+    position: { x: 20, y: 3, z: -24.99 },
+    rotation: { x: 0, y: 0, z: 0 },
+    bBox: true
+});
+scene.add(painting6);
+
+const painting7 = createPainting({ // front wall
+    width: 8,
+    height: 5,
+    textureUrl: '../Images/319046ed-cf78-4216-b961-a51ad48faed9.jpg',
+    position: { x: 10, y: 3, z: -24.99 },
+    rotation: { x: 0, y: 0, z: 0 },
+    bBox: true
+});
+scene.add(painting7);
+
+// Front wall, first painting (left-most)
+const painting8 = createPainting({ // front wall
+    width: 8,
+    height: 5,
+    textureUrl: '../Images/clockthing.jpg',
+    position: { x: 0, y: 3, z: -24.99 },
+    rotation: { x: 0, y: 0, z: 0 },
+    bBox: true
+});
+scene.add(painting8);
+
+// Front wall, second painting
+const painting9 = createPainting({ // front wall
+    width: 8,
+    height: 5,
+    textureUrl: '../Images/buildingicons/weirdbuild.png',
+    position: { x: -10, y: 3, z: -24.99 },
+    rotation: { x: 0, y: 0, z: 0 },
+    bBox: true
+});
+scene.add(painting9);
+
+// Front wall, second painting
+const painting10 = createPainting({ // front wall
+    width: 8,
+    height: 5,
+    textureUrl: '../Images/d7d83c67-71a2-4ac9-8384-8d8907013c57.jpg',
+    position: { x: -20, y: 3, z: -24.99 },
+    rotation: { x: 0, y: 0, z: 0 },
+    bBox: true
+});
+scene.add(painting10);
+
+// Paintings
+const painting11 = createPainting({ // right wall
+    width: 8,
+    height: 5,
+    textureUrl: '../Images/e96f2fd6-7499-4352-8dd0-1fa3231f4e3b.jpg',
+    position: { x: 24.99, y: 3, z: 20 },
+    rotation: { x: 0, y: Math.PI / 2, z: 0 },
+    bBox: true
+});
+scene.add(painting11);
+
+
+const painting12 = createPainting({ // right wall
+    width: 8,
+    height: 5,
+    textureUrl: '../Images/forest1.jpg',
+    position: { x: 24.99, y: 3, z: 10 },
+    rotation: { x: 0, y: Math.PI / 2, z: 0 },
+    bBox: true
+});
+scene.add(painting12);
+
+
+const painting13 = createPainting({ // right wall
+    width: 8,
+    height: 5,
+    textureUrl: '../Images/image0_0.jpg',
+    position: { x: 24.99, y: 3, z: 0 },
+    rotation: { x: 0, y: Math.PI / 2, z: 0 },
+    bBox: true
+});
+scene.add(painting13);
+
+
+const painting14 = createPainting({ // right wall
+    width: 8,
+    height: 5,
+    textureUrl: '../Images/image1_0.jpg',
+    position: { x: 24.99, y: 3, z: -10 },
+    rotation: { x: 0, y: Math.PI / 2, z: 0 },
+    bBox: true
+});
+scene.add(painting14);
+
+const painting15 = createPainting({ // right wall
+    width: 8,
+    height: 5,
+    textureUrl: '../Images/livingforest.jpg',
+    position: { x: 24.99, y: 3, z: -20 },
+    rotation: { x: 0, y: Math.PI / 2, z: 0 },
+    bBox: true
+});
+scene.add(painting15);
+
+
+// scene.add(painting1, painting2, painting3, painting4, painting5, painting6, painting7, painting8, painting9, painting10, painting11, painting12, painting13, painting14, painting15);
+
+//////////////////////////////////////////////////////////////
+// AUDIO
+////////////////////////////////////////////////////////////////////
+
+let sound = 0;
+// track if audio buffer is loaded
+let bufferLoaded = false;
+
+// setup audio for the scene
+export const audioSetup = (camera) => {
+
+    document.getElementById("start_audio").addEventListener("click", audioStart);
+    document.getElementById("pause_audio").addEventListener("click", audioPause);
+    document.getElementById("stop_audio").addEventListener("click", audioStop);
+
+
+    // create an audio listener and add it to the camera
+    const listener = new THREE.AudioListener();
+    camera.add(listener);
+
+    // creating the audio source
+    sound = new THREE.Audio(listener);
+
+    // create an audio loader
+    const audioLoader = new THREE.AudioLoader();
+    // load the audio file
+    audioLoader.load("../audio/ethereal-voyage-161507.mp3", function (buffer) {
+        // set the audio source buffer
+        sound.setBuffer(buffer);
+        // set the audio source to loop
+        sound.setLoop(true);
+        // set the audio source to autoplay
+        sound.setVolume(0.2);
+        // set to true when audio buffer is loaded
+        bufferLoaded = true;
     });
+}
 
-    const painting = new THREE.Mesh(paintingGeometry, paintingMaterial);
-
-    painting.position.set(position.x, position.y, position.z);
-
-
-    return painting;
+// play audio
+export const audioStart = () => {
+    // check if the buffer is loaded before playing
+    if (sound && bufferLoaded) {
+        // play the audio
+        sound.play();
+    }
 };
 
-const painting1 = createPainting(
-    '../Images/assets/artGallery1Index/aigen-awe.png',
-    5, 9,
-    new THREE.Vector3(-5, 5, -24.99)
-);
+// pause audio
+export const audioPause = () => {
+    // if playing,
+    if (sound) {
+        // pause the audio
+        sound.pause();
+    }
+};
 
-const painting2 = createPainting(
-    '../Images/assets/artGallery1Index/museum.jpg',
-    10, 10,
-    new THREE.Vector3(15, 1, -24.99)
-);
+// stop audio
+export const audioStop = () => {
+    // if playing,
+    if (sound) {
+        // stop the audio
+        sound.stop();
+    }
+};
 
-// const painting3 = createPainting();
-
-scene.add(painting1, painting2);
-
+audioSetup(camera);
 
 /////////////////////////////////////////////////////////////////////////////
-// ADD A BOUNDING BOX FOR COLLISIONS 
+// CREATE SCULPTURES
 /////////////////////////////////////////////////////////////////////////////
 
-// function setupBoundingBox(object) {
-//     object.BBox = new THREE.Box3().setFromObject(object);
-// }
-// setupBoundingBox(leftWall);
-// setupBoundingBox(rightWall);
-// setupBoundingBox(frontWall);
-// setupBoundingBox(backWall);
-// setupBoundingBox(floorPlane);
-// setupBoundingBox(polyhedron);
-
-
-///////////////////////////////////////////////////////////////////////////////
-// Collision Detection
-//////////////////////////////////////////////////////////////////////////////
-
-
-
+// initLoaders(scene);
 
 /////////////////////////////////////////////////////////////////////////////
 // ANIMATION
@@ -468,9 +733,6 @@ function animate() {
     // // Set the position of the light to the camera's position
     // pointLight.position.copy(camera.position);
 
-    // // cube rotation - x, y, z
-    // cube.rotation.x += 0.01;
-    // cube.rotation.y += 0.01;
 
     // Rotate the dome about the vertical axis (Y-axis)
     dome.rotation.y += 0.0003; // Adjust the speed as needed
@@ -481,7 +743,6 @@ function animate() {
 
     // // bounce the cube up and down
     // cube.position.y = Math.abs(Math.sin(Date.now() * 0.002)) * 20;
-
 
 
     // render the scene

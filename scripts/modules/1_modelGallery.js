@@ -46,9 +46,6 @@ console.log(scene, camera, renderer); // Check if these are defined
 // Initialize audio
 audioSetup(camera);
 
-
-
-
 // Initialize controls
 initControls(camera, renderer);
 
@@ -86,47 +83,14 @@ controls.enableDamping = true; // an animation loop is required when either damp
 
 // Add event listener for play button
 playButtonSetup(controls);
+
 // loadGLTFModel(scene, '../models/mossy_water_fountain_free__agustin_honnun/scene.gltf', onLoadFunction, onProgressFunction, onErrorFunction);
 
+/////////////////////////////////////////////////////////////////////////////
+// Load the model
+/////////////////////////////////////////////////////////////////////////////
+// initLoaders(scene);
 
-// Assuming texture paths
-const baseColorPath = '../models/mossy_water_fountain_free__agustin_honnun/textures/Fountain_Material_baseColor.png';
-const metallicRoughnessPath = '../models/mossy_water_fountain_free__agustin_honnun/textures/Fountain_Material_metallicRoughness.png';
-const normalPath = '../models/mossy_water_fountain_free__agustin_honnun/textures/Fountain_Material_normal.png';
-
-// Load textures
-const textureLoader = new THREE.TextureLoader();
-const baseColorTexture = textureLoader.load(baseColorPath);
-const metallicRoughnessTexture = textureLoader.load(metallicRoughnessPath);
-const normalTexture = textureLoader.load(normalPath);
-
-// loadGLTFModel(scene, '../models/mossy_water_fountain_free__agustin_honnun/scene.gltf',
-//     (gltf) => {
-//         console.log('Model loaded', gltf);
-
-//         // Add the model to the scene
-//         scene.add(gltf.scene);
-
-//         // Set the scale of the model
-//         gltf.scene.scale.set(0.02, 0.02, 0.02);
-//         // Set the position of the model
-//         gltf.scene.position.set(0, -2, 0);
-
-//         // Apply textures to the model
-//         model.traverse((child) => {
-//             if (child.isMesh) {
-//                 child.material = new THREE.MeshStandardMaterial({
-//                     map: baseColorTexture,
-//                     metalnessMap: metallicRoughnessTexture,
-//                     roughnessMap: metallicRoughnessTexture,
-//                     normalMap: normalTexture
-//                 });
-//             }
-//         });
-//     },
-//     (xhr) => { console.log((xhr.loaded / xhr.total * 100) + '% loaded'); },
-//     (error) => { console.error('Error loading model', error); }
-// );
 
 const gltfFountain = new GLTFLoader();
 

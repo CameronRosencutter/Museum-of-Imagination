@@ -21,7 +21,7 @@ export function initScene() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     // set clear color to white
     renderer.setClearColor(0xffffff, 1);
-    document.body.appendChild(renderer.domElement); jk
+    document.body.appendChild(renderer.domElement);
 
 
     /////////// Background Images//////////////////// 

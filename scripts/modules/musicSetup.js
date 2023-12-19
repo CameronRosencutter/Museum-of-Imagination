@@ -13,6 +13,7 @@ export const audioSetup = (camera) => {
     document.getElementById("pause_audio").addEventListener("click", audioPause);
     document.getElementById("stop_audio").addEventListener("click", audioStop);
 
+
     // create an audio listener and add it to the camera
     const listener = new THREE.AudioListener();
     camera.add(listener);
@@ -24,6 +25,19 @@ export const audioSetup = (camera) => {
     const audioLoader = new THREE.AudioLoader();
     // load the audio file
     audioLoader.load("../audio/background-epic-piano-music-for-short-video-vlog-advertising-1-minute-180911.mp3", function (buffer) {
+        // set the audio source buffer
+        sound.setBuffer(buffer);
+        // set the audio source to loop
+        sound.setLoop(true);
+        // set the audio source to autoplay
+        sound.setVolume(0.2);
+        // set to true when audio buffer is loaded
+        bufferLoaded = true;
+    });
+
+    const audioLoader2 = new THREE.AudioLoader();
+    // load the audio file
+    audioLoader2.load("../audio/background-epic-piano-music-for-short-video-vlog-advertising-1-minute-180911.mp3", function (buffer) {
         // set the audio source buffer
         sound.setBuffer(buffer);
         // set the audio source to loop

@@ -2,13 +2,12 @@
 
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
-import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
-// import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
+
 
 /////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////
+// Loaders
 export function loadTexture(url, callback) {
     const loader = new THREE.TextureLoader();
     loader.setCrossOrigin('anonymous');
@@ -24,95 +23,11 @@ export function loadTexture(url, callback) {
     }
 };
 
-/////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////
-export function initLoaders() {
-    // Initialize loaders
 
+/////////////////////////////////////////////////////////////////////////////
 
-
-    // Example: Initialize an RGBE Loader if you plan to use it
-    const rgbeLoader = new RGBELoader();
-    // Similar to the GLTFLoader, load HDR environments or return the loader
-
-    // Return the loaders if you want to use them outside this function
-    return { gltfLoader, rgbeLoader };
-}
-
-// // Load GLTF Model function
-// export function loadGLTFModel(scene, glbPath, onLoad, onProgress, onError) {
-//     const gltfLoader = new GLTFLoader();
-
-//     gltfLoader.load(
-//         glbPath,
-//         (gltf) => {
-//             scene.add(gltf.scene);
-//             if (onLoad) onLoad(gltf);
-//         },
-//         (xhr) => {
-//             if (onProgress) onProgress(xhr);
-//         },
-//         (error) => {
-//             console.error('An error happened', error);
-//             if (onError) onError(error);
-//         }
-//     );
-// }
-
-// // Load GLTF Model function
-// export function loadGLTFModel(scene, modelPath, onLoad, onProgress, onError) {
-//     const gltfLoader = new GLTFLoader();
-
-//     // Optional: Provide a DRACOLoader instance to decode compressed mesh data
-//     const dracoLoader = new DRACOLoader();
-//     dracoLoader.setDecoderPath('/examples/jsm/libs/draco/');
-//     gltfLoader.setDRACOLoader(dracoLoader);
-
-//     gltfLoader.load(
-//         modelPath,
-//         (gltf) => {
-//             scene.add(gltf.scene);
-//             if (onLoad) onLoad(gltf);
-//         },
-//         (xhr) => {
-//             if (onProgress) onProgress(xhr.loaded / xhr.total * 100);
-//         },
-//         (error) => {
-//             console.error('An error happened', error);
-//             if (onError) onError(error);
-//         }
-//     );
-// }
-
-// // The OBJ loader code can be commented out or removed
-
-// // instantiate a loader
-// const loader = new OBJLoader();
-
-// // load a resource
-// loader.load(
-//     // resource URL
-//     '',
-//     // called when resource is loaded
-//     function (object) {
-
-//         scene.add(object);
-
-//     },
-//     // called when loading is in progresses
-//     function (xhr) {
-
-//         console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-
-//     },
-//     // called when loading has errors
-//     function (error) {
-
-//         console.log('An error happened');
-
-//     }
-// );
 
 export function loadGLTFModel(scene, modelPath, texturePath, onLoad, onProgress, onError) {
     const loader = new GLTFLoader();
@@ -145,4 +60,49 @@ export function loadGLTFModel(scene, modelPath, texturePath, onLoad, onProgress,
         onProgress,
         onError
     );
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+
+export function initLoaders(scene) {
+    const manager = new THREE.LoadingManager();
+    const loader = new THREE.GLTFLoader(manager);
+
+    // Callbacks for the Loading Manager
+    manager.onStart = function () {
+        console.log('Loading started');
+    };
+
+    manager.onLoad = function () {
+        console.log('Loading complete');
+    };
+
+    manager.onProgress = function (url, itemsLoaded, itemsTotal) {
+        console.log('Loading file: ' + url + ' (' + itemsLoaded + '/' + itemsTotal + ')');
+    };
+
+    manager.onError = function (url) {
+        console.log('There was an error loading ' + url);
+    };
+
+    // Load each model
+    loader.load('models/model1/model1.gltf', function (gltf) {
+        scene.add(gltf.scene);
+    });
+
+    loader.load('models/model2/model2.gltf', function (gltf) {
+        const model = gltf.scene;
+
+        // Scale the model
+        model.scale.set(0.5, 0.5, 0.5); // Scale to half its size
+
+        // Position the model
+        model.position.set(0, 0, 0); // Position at the origin
+
+        scene.add(model);
+    });
+
+    // Add more models as needed
 }
