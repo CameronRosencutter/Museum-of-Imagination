@@ -265,7 +265,7 @@ Footer {
   position: relative;
   transform: translateY(150px);
   opacity: 0;
-  transition: all 2s ease;
+  transition: all 6s ease;
 }
 
 .reveal.active {
@@ -312,8 +312,7 @@ Footer {
     will-change: transform;
     }
 
-
-    /* slide from bottom for the trees 
+/* slide from bottom for the trees 
 @keyframes slideInFromBottom {
   0% {
     transform: translateY(100%); /* Start off-screen below 
