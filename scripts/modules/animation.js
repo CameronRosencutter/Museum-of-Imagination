@@ -15,8 +15,6 @@ export function animate(scene, camera, renderer, objects) {
     function render() {
         requestAnimationFrame(render);
 
-        // // required if controls.enableDamping or controls.autoRotate are set to true
-        // controls.update();
 
 
         // if (checkCollision(camera)) {

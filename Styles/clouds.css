@@ -107,7 +107,7 @@ body {
 /* GALLERY LANDING PAGE AUDIO DIV FEATURES */
 
 .audio_controls {
-    background-color: rgb(26, 60, 160);
+    background-color: hex(#071330);
     z-index: 2;
     /* To make sure it shows up on top of other elements */
 }
@@ -134,8 +134,30 @@ body {
 #menu-div {
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* EXTRA SCROLLBAR COLOR IN CANVAS */
+canvas::-webkit-scrollbar {
+    width: 12px;
+    /* width of the entire scrollbar */
+}
+
+canvas::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* color of the tracking area */
+}
+
+canvas::-webkit-scrollbar-thumb {
+    background: #888;
+    /* color of the scroll thumb */
+}
+
+canvas::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* color of the scroll thumb on hover */
 }

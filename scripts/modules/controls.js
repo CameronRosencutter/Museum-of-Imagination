@@ -46,16 +46,24 @@ export function initControls(camera, renderer) {
         }
         // Up arrow key or 'W' key
         if (keycode === 38 || keycode === 87) {
-            event.preventDefault(); // Prevents the default action (scrolling in this case)
+            event.preventDefault();
+            // Prevents the default action (scrolling in this case)
             camera.translateZ(-0.15);
         }
         // Down arrow key or 'S' key
         if (keycode === 40 || keycode === 83) {
             camera.translateZ(0.15);
         }
+        if (event.key === "p") {
+            // if the "SPACE" key is pressed
+            controls.unlock();
+            // unlock the pointer
+            lockPointer = false;
+        }
         // Escape key
         else if (keycode === 27) {
-            window.location.href = 'http.google.com'; // Replace with your desired URL
+            // Replace with your desired URL
+            window.location.href = 'http.google.com';
         }
     }; // end of onKeyDown function
 
