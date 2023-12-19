@@ -1,8 +1,10 @@
+
 @import 'fonts.scss';
 
 header {
 
     .navbar {
+        /*This is the navbar Background*/
         background-color: #071330;
 
 
@@ -11,12 +13,14 @@ header {
             color: white;
             border: rgb(255, 255, 255);
             font-size: 25px;
+
             transition: ease-in-out 0.3s;
             padding-top: 20px;
             padding-bottom: 20px;
         }
         
         a:hover {
+            /*The text will increase in size on hover*/
             font-size: 30px;
             color: white;
         }

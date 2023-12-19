@@ -1,0 +1,31 @@
+.whatwedo {
+padding: 30px;
+display: flex;
+justify-content: center;
+background-color: #071330;
+
+    .card {
+    outline: solid 3px rgb(255, 255, 255);
+    background-color:#d0daec;
+    min-width: 100px;
+    max-width: 350px;
+
+    .panel {
+        outline: green solid 3px;
+    }
+}
+}
+
+.whatwedosection {
+    padding-top: 30px;
+    text-align: center;
+    background-color: #071330;
+
+    h1 {
+        color: white;
+        font-size: 50px;
+        margin-top: 50px;
+        font-family: QuickSandBold;
+        border-bottom: #d0daec solid 2px;
+    }
+}
