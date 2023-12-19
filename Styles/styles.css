@@ -341,7 +341,7 @@ Footer {
   top: 120;
   left: 0;
   width: 100%; /* This will cover the museum image */
-  height: -70%; /* Adjust the height to fit as an overlay */
+  height: 98%; /* Adjust the height to fit as an overlay */
   z-index: 10; /* This will ensure the trees are on top */
   }
 
