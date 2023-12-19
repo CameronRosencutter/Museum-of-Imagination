@@ -70,7 +70,7 @@
   src: url(../Fonts/MinimalustSmallCapItalic.otf);
 }
 @font-face {
-  font-family: QuickSandBold;
+font-family: QuickSandBold;
   src: url(../Fonts/Quicksand_Bold.otf);
 }
 @font-face {
@@ -266,7 +266,7 @@ Footer {
   position: relative;
   transform: translateY(150px);
   opacity: 0;
-  transition: all 2s ease;
+  transition: all 1s ease;
 }
 
 .reveal.active {
