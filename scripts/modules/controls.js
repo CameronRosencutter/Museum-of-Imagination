@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { PointerLockControls } from '/node_modules/three/examples/jsm/controls/PointerLockControls.js';
 import { showMenu, hideMenu } from './menu.js';
 
+
 //////////////////////////////////////////////////////////////////////////////
 // Pointer Lock Controls - Key bindings for camera movement
 //////////////////////////////////////////////////////////////////////////////
@@ -34,7 +35,7 @@ export function initControls(camera, renderer) {
     // 37 - left, 38 - up, 39 - right, 40 - down
     function onKeyDown(event) {
         let keycode = event.which;
-
+        console.log(keycode);
 
         // Right arrow key or 'D' key
         if (keycode === 39 || keycode === 68) {
@@ -50,20 +51,31 @@ export function initControls(camera, renderer) {
             // Prevents the default action (scrolling in this case)
             camera.translateZ(-0.15);
         }
+        // if the "Q key is pressed
+        if (keycode === 81) {
+            // rotate camera to the left
+            camera.rotateY(0.15);
+        }
+        // if the "E" key is pressed
+        if (keycode === 69) {
+            // rotate camera to the right
+            camera.rotateY(-0.15);
+        }
         // Down arrow key or 'S' key
         if (keycode === 40 || keycode === 83) {
+            // Prevents the default action (scrolling in this case)
             camera.translateZ(0.15);
         }
-        if (event.key === "p") {
-            // if the "SPACE" key is pressed
-            controls.unlock();
-            // unlock the pointer
-            lockPointer = false;
-        }
+        // // if the "SPACE" key is pressed
+        // if (keycode === 32) {
+        //     event.preventDefault();
+        //     // Replace with your desired URL
+        //     window.location.href = 'https://github.com/CameronRosencutter/Museum-of-Imagination';
+        // }
         // Escape key
-        else if (keycode === 27) {
-            // Replace with your desired URL
-            window.location.href = 'http.google.com';
+        if (keycode === 27) {
+            showMenu();
+
         }
     }; // end of onKeyDown function
 

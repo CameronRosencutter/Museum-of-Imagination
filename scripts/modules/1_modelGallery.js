@@ -7,7 +7,7 @@ import { initScene } from './sceneSetup.js';
 import { initControls } from './controls.js';
 import { addObjects } from './objects.js';
 import { animate } from './animation.js';
-// import { onWindowResize } from './utility.js';
+
 import { audioPause, audioSetup, audioStart, audioStop } from './musicSetup.js';
 // import { initLoaders } from './loaderSetup.js';
 import { MapControls } from 'three/addons/controls/MapControls.js';
@@ -43,19 +43,15 @@ import { playButtonSetup } from './menu.js';
 const { scene, camera, renderer } = initScene();
 console.log(scene, camera, renderer); // Check if these are defined
 
-
-// // Add event listeners for the audio guide buttons
-// document.getElementById("start_audio").addEventListener("click", audioStart);
-// document.getElementById("pause_audio").addEventListener("click", audioPause);
-// document.getElementById("stop_audio").addEventListener("click", audioStop);
-
 // Initialize audio
 audioSetup(camera);
 
 
 
-// Add event listener for window resizing
-window.addEventListener('resize', onWindowResize, false);
+
+// Initialize controls
+initControls(camera, renderer);
+
 export function onWindowResize() {
     // update camera aspect ratio
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -66,9 +62,9 @@ export function onWindowResize() {
 
     return camera;
 }
+// Add event listener for window resizing
+window.addEventListener('resize', onWindowResize, false);
 
-// Initialize controls
-initControls(camera, renderer);
 
 // Add objects to the scene and receive any objects that might be needed for animation
 // // Call addObjects and handle the asynchronous operation

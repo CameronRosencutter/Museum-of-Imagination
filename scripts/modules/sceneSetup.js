@@ -21,7 +21,24 @@ export function initScene() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     // set clear color to white
     renderer.setClearColor(0xffffff, 1);
-    document.body.appendChild(renderer.domElement);
+    document.body.appendChild(renderer.domElement); jk
+
+
+    /////////// Background Images//////////////////// 
+
+    const imgUrl = '../Images/building1.jpg';
+
+    const loader = new THREE.TextureLoader();
+    const texture = loader.load(imgUrl, () => {
+        const rt = new THREE.WebGLCubeRenderTarget(texture.image.height)
+        rt.fromEquirectangularTexture(renderer, texture);
+        // texture.generateMipmaps = true;
+        texture.colorSpace = THREE.SRGBColorSpace;
+        // texture.minFilter = THREE.LinearMipMapLinearFilter; // Use mipmapping for better performance
+
+        scene.background = rt.texture;
+    });
+
 
 
     // add camera to scene
