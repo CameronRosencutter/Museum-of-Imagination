@@ -1,3 +1,4 @@
+//for cards
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
@@ -14,3 +15,22 @@ function isInViewport(element) {
       }
     });
   });
+
+  //for trees
+  function 
+  isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.left >= 0 &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+// Event listener for the scroll event to check for elements in the viewport
+document.addEventListener('scroll', function () {
+  document.querySelectorAll('.treereveal').forEach(function (element) {
+    if (isInViewport(element)) {
+      element.classList.add('active');
+    }
+  });
+});

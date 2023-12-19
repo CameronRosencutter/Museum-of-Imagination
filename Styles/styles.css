@@ -208,7 +208,6 @@ header .navbar a:hover {
 }
 .entersection .walkwayspace .text-center {
   color: white;
-  outline: red solid;
   width: 70%;
 }
 .entersection .walkwayspace .text-center h1 {
@@ -289,28 +288,60 @@ Footer {
 
 .tree {
   position: absolute;
-  width: 5%;
+  height: 3%;
+  width: 3%;
   bottom: 0;
 }
 
 .trees-overlay {
   position: absolute;
-  top: 20;
+  top: 120;
   left: 0;
   width: 100%; /* This will cover the museum image */
-  height: 100%; /* Adjust the height to fit as an overlay */
+  height: 90%; /* Adjust the height to fit as an overlay */
   z-index: 10; /* This will ensure the trees are on top */
-  animation: 3s ease-out 0s 1 slideInFromside; /* Adjust duration and delay as needed */
+  }
+
+  .treeLeft {
+  animation: 3s ease-out 0s 1 slideInFromLeft; /* Adjust duration and delay as needed */
   will-change: transform;
   }
 
-/* slide from bottom for the trees */
+  .treeRight {
+    animation: 3s ease-out 0s 1 slideInFromRight; /* Adjust duration and delay as needed */
+    will-change: transform;
+    }
+
+
+    /* slide from bottom for the trees 
 @keyframes slideInFromBottom {
   0% {
-    transform: translateY(100%); /* Start off-screen below */
+    transform: translateY(100%); /* Start off-screen below 
   }
   100% {
-    transform: translateY(0); /* End at its normal position */
+    transform: translateY(0); /* End at its normal position 
   }
 }
 
+/* Keyframes for sliding in from the left */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%); /* Start off-screen to the left */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); /* End at its normal position */
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100vw); /* Start off-screen to the right */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); /* End at the initial position */
+    opacity: 1;
+  }
+}
