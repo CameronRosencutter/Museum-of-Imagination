@@ -1,12 +1,17 @@
+/*-The building potentially has the most complex CSS code out of the others.-*/
+
 .buildinggallery {
+    /*This is the background color of the sky. NOT the building itself.*/
     background-color:#52688F;
 
     .building{
+        /*This is the building itself. The background color is the color of the building.*/
+        /*Try not to mess with the padding or margin if possible, as it could throw off the whole thing*/
         background-color: #071330;
         outline: 5px solid;
         margin: auto;
-        min-width: 400px;
-        max-width: 1050px;
+        min-width: 350px;
+        max-width: 950px;
         padding: 10px;
 
         .buildingrow {
