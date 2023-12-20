@@ -380,7 +380,7 @@ Footer {
 
 .trees-overlay {
   position: absolute;
-  top: 220px;
+  top: 200px;
   left: 0;
   width: 100%; /* This will cover the museum image */
   height: 98%; /* Adjust the height to fit as an overlay */
