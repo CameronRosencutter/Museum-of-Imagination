@@ -92,16 +92,4 @@ playButtonSetup(controls);
 // initLoaders(scene);
 
 
-const gltfFountain = new GLTFLoader();
 
-gltfFountain.load('../models/mossy_water_fountain_free__agustin_honnun/scene.gltf', (gltf) => {
-    const model = gltf.scene;
-
-    // Set the scale of the model
-    model.scale.set(0.1, 0.1, 0.1);
-    // Set the position of the model
-    model.position.set(0, -30, 0);
-
-    scene.add(model);
-
-});
