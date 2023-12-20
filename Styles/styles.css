@@ -70,7 +70,7 @@
   src: url(../Fonts/MinimalustSmallCapItalic.otf);
 }
 @font-face {
-font-family: QuickSandBold;
+  font-family: QuickSandBold;
   src: url(../Fonts/Quicksand_Bold.otf);
 }
 @font-face {
@@ -190,12 +190,15 @@ header .navbar a:hover {
 }
 .entersection .container .Museum .open {
   display: none;
+  z-index: 1;
 }
 .entersection .container .Museum .closed:hover {
   display: none;
+  z-index: 1;
 }
 .entersection .container .Museum .closed:hover + .open {
   display: block;
+  z-index: 1;
 }
 .entersection .walkwayspace {
   height: 400px;
@@ -203,12 +206,10 @@ header .navbar a:hover {
   background-color: #52688F;
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px 0;
 }
 .entersection .walkwayspace .text-center {
   color: white;
+  outline: red solid;
   width: 70%;
 }
 .entersection .walkwayspace .text-center h1 {
@@ -299,145 +300,5 @@ Footer {
 }
 .aboutussection h1 {
   text-align: center;
-  color: red;
+  color: #071330;
 }/*# sourceMappingURL=styles.css.map */
-
-/*reveal for cards*/
-
-/* card one */
-.reveal {
-  position: relative;
-  transform: translateY(150px);
-  opacity: 0;
-  transition: all 6s ease;
-}
-
-.reveal.active {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* card 2 */
-.reveal2 {
-  position: relative;
-  transform: translateY(150px);
-  opacity: 0;
-  transition: all 8s ease;
-}
-
-.reveal2.active {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-
-/* card 3 */
-.reveal3 {
-  position: relative;
-  transform: translateY(150px);
-  opacity: 0;
-  transition: all 10s ease;
-}
-
-.reveal3.active {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* card 4 */
-.reveal4 {
-  position: relative;
-  transform: translateY(150px);
-  opacity: 0;
-  transition: all 12s ease;
-}
-
-.reveal4.active {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-
-/*reveal for trees*/
-.treereveal {
-  position: relative;
-  transform: translateY(150px);
-  opacity: 0;
-  transition: all 2s ease;
-}
-
-.treereveal.active {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.tree {
-  position: absolute;
-  height: 3%;
-  width: 3%;
-  bottom: 0;
-}
-
-.trees-overlay {
-  position: absolute;
-  top: 200px;
-  left: 0;
-  width: 100%; /* This will cover the museum image */
-  height: 98%; /* Adjust the height to fit as an overlay */
-  z-index: 10; /* This will ensure the trees are on top */
-  }
-
-  .treeLeft {
-  animation: 3s ease-out 0s 1 slideInFromLeft; /* Adjust duration and delay as needed */
-  will-change: transform;
-  }
-
-  .treeRight {
-    animation: 3s ease-out 0s 1 slideInFromRight; /* Adjust duration and delay as needed */
-    will-change: transform;
-    }
-
-/* slide from bottom for the trees 
-@keyframes slideInFromBottom {
-  0% {
-    transform: translateY(100%); /* Start off-screen below 
-  }
-  100% {
-    transform: translateY(0); /* End at its normal position 
-  }
-}
-
-/* Keyframes for sliding in from the left */
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%); /* Start off-screen to the left */
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0); /* End at its normal position */
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromRight {
-  0% {
-    transform: translateX(100vw); /* Start off-screen to the right */
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0); /* End at the initial position */
-    opacity: 1;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .tree {
-    height: 6%;
-    width: 6%;
-  }
-
-  .trees-overlay {
-    top: 100px;
-    height: 90%;
-  }
-}
