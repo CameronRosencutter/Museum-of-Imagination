@@ -692,7 +692,7 @@ export const audioSetup = (camera) => {
         // set the audio source to loop
         sound.setLoop(true);
         // set the audio source to autoplay
-        sound.setVolume(0.2);
+        sound.setVolume(0.1);
         // set to true when audio buffer is loaded
         bufferLoaded = true;
     });
