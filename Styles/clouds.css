@@ -149,7 +149,7 @@ body {
 
 /* EXTRA SCROLLBAR COLOR IN CANVAS */
 canvas::-webkit-scrollbar {
-    width: 12px;
+    width: 14px;
     /* width of the entire scrollbar */
 }
 
@@ -159,7 +159,7 @@ canvas::-webkit-scrollbar-track {
 }
 
 canvas::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #000000;
     /* color of the scroll thumb */
 }
 

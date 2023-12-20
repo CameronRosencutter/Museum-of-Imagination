@@ -44,12 +44,20 @@ document.body.appendChild(renderer.domElement);
 
 /////////// Background Images//////////////////// 
 const imgUrl1 = '../Images/assets/artGallery1Index/low-angle-shot-mesmerizing-starry-sky.jpg';
-const imgUrl2 = '../Images/assets/artGallery1Index/astronomy.png';
+const imgUrl2 = '../Images/assets/fantasy.webp';
 const imgUrl3 = '../Images/assets/artGallery1Index/ultra-detailed-nebula-abstract-wallpaper-4.jpg';
 
+
+
 const loader = new THREE.TextureLoader();
-loader.load(imgUrl3, (texture) => {
-    scene.background = texture;
+const texture = loader.load(imgUrl3, () => {
+    const rt = new THREE.WebGLCubeRenderTarget(texture.image.height)
+    rt.fromEquirectangularTexture(renderer, texture);
+    texture.generateMipmaps = true;
+    texture.colorSpace = THREE.SRGBColorSpace;
+    texture.minFilter = THREE.LinearMipMapLinearFilter; // Use mipmapping for better performance
+
+    scene.background = rt.texture;
 });
 
 // add camera to scene
@@ -220,48 +228,48 @@ function onKeyDown(event) {
     }
 }
 
-// touch test
+// // touch test
 
-let lastTouchX, lastTouchY;
+// let lastTouchX, lastTouchY;
 
-function onTouchStart(event) {
-    lastTouchX = event.touches[0].clientX;
-    lastTouchY = event.touches[0].clientY;
-}
+// function onTouchStart(event) {
+//     lastTouchX = event.touches[0].clientX;
+//     lastTouchY = event.touches[0].clientY;
+// }
 
-function onTouchMove(event) {
-    event.preventDefault(); // Prevents default touch actions like scrolling
+// function onTouchMove(event) {
+//     event.preventDefault(); // Prevents default touch actions like scrolling
 
-    const touchX = event.touches[0].clientX;
-    const touchY = event.touches[0].clientY;
+//     const touchX = event.touches[0].clientX;
+//     const touchY = event.touches[0].clientY;
 
-    const deltaX = touchX - lastTouchX;
-    const deltaY = touchY - lastTouchY;
+//     const deltaX = touchX - lastTouchX;
+//     const deltaY = touchY - lastTouchY;
 
-    // Rotate the camera
-    rotateCamera(deltaX, deltaY);
+//     // Rotate the camera
+//     rotateCamera(deltaX, deltaY);
 
-    lastTouchX = touchX;
-    lastTouchY = touchY;
-}
+//     lastTouchX = touchX;
+//     lastTouchY = touchY;
+// }
 
-// Attach event listeners
-renderer.domElement.addEventListener('touchstart', onTouchStart, false);
-renderer.domElement.addEventListener('touchmove', onTouchMove, false);
+// // Attach event listeners
+// renderer.domElement.addEventListener('touchstart', onTouchStart, false);
+// renderer.domElement.addEventListener('touchmove', onTouchMove, false);
 
 
-function rotateCamera(deltaX, deltaY) {
-    const rotationSpeed = 0.005; // Adjust this value to control rotation speed
+// function rotateCamera(deltaX, deltaY) {
+//     const rotationSpeed = 0.005; // Adjust this value to control rotation speed
 
-    // Calculate rotation around y-axis (left/right movement)
-    camera.rotation.y += deltaX * rotationSpeed;
+//     // Calculate rotation around y-axis (left/right movement)
+//     camera.rotation.y += deltaX * rotationSpeed;
 
-    // Calculate rotation around x-axis (up/down movement)
-    camera.rotation.x += deltaY * rotationSpeed;
+//     // Calculate rotation around x-axis (up/down movement)
+//     camera.rotation.x += deltaY * rotationSpeed;
 
-    // Optionally, you can limit the rotation to avoid flipping the scene upside down
-    camera.rotation.x = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, camera.rotation.x));
-}
+//     // Optionally, you can limit the rotation to avoid flipping the scene upside down
+//     camera.rotation.x = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, camera.rotation.x));
+// }
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -354,7 +362,7 @@ let planeMaterial = new THREE.MeshBasicMaterial({
 // create floor
 const floorPlane = new THREE.Mesh(planeGeometry, planeMaterial)
 
-scene.add(floorPlane);
+// scene.add(floorPlane);
 
 // floorPlane.material.map = objectTexture('../images/artGallery1Index/astronomy.png'); // map for texture update
 
@@ -366,7 +374,7 @@ floorPlane.position.y = -Math.PI / 2; // 180 degree clockwise
 floorPlane.BBox = new THREE.Box3();
 floorPlane.BBox.setFromObject(floorPlane);
 
-
+scene.add(floorPlane);
 /////////////////////////////////////////////////////////////////////////////
 // CREATE WALLS - left wall, right wall, back wall, ceiling
 /////////////////////////////////////////////////////////////////////////////
@@ -737,12 +745,9 @@ function animate() {
     // Rotate the dome about the vertical axis (Y-axis)
     dome.rotation.y += 0.0003; // Adjust the speed as needed
 
-    // // polyhedron rotation - x, y, z
-    // polyhedron.rotation.x += -0.001;
-    // polyhedron.rotation.y += -0.001;
-
-    // // bounce the cube up and down
-    // cube.position.y = Math.abs(Math.sin(Date.now() * 0.002)) * 20;
+    // polyhedron rotation - x, y, z
+    polyhedron.rotation.x += -0.001;
+    polyhedron.rotation.y += -0.001;
 
 
     // render the scene
