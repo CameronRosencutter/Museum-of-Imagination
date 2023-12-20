@@ -1,4 +1,5 @@
 /** FOR INDEX HTML - ART GALLERY */
+
 // console log for inspector to see if THREE is loaded
 console.log("THREE object is loaded 😄, here is the THREE object: ", THREE)
 import * as THREE from 'three';
