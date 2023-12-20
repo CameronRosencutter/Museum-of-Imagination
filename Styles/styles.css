@@ -429,3 +429,15 @@ Footer {
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .tree {
+    height: 6%;
+    width: 6%;
+  }
+
+  .trees-overlay {
+    top: 100px;
+    height: 90%;
+  }
+}
