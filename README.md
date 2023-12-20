@@ -48,16 +48,24 @@ Ctrl - Click on local server.
 ```
 
 
-![App Screenshot]()
+![Navigation](Images/readme/readme_home.png)
 
-![App Screenshot]()
+![Museum Design](Images/readme/museum_design.png)
 
-## Visit our [ Museum Of Imagination]() hosted on GitHub Pages.
+![Museum Gallery](Images/readme/readme_gallery2.png)
+
+![Models Gallery](Images/readme/readme_gallery1.png)
+
+![Gallery Controls](Images/readme/gallery_controls.png)
+
+## Visit our [ Museum Of Imagination]() 
 
 Please Feel Free to connect with any one of us at our socials linked below!
 
 ## Authors
 
-- [Cameron Rosencutter]()
-- [Eve Baker]()
-- [Crystal Carrillo](https://github.com/CKCarr)
+- Cameron Rosencutter [Github](https://github.com/CameronRosencutter)
+- Eve Baker [Github](https://github.com/EveBaker)
+- Crystal Carrillo [Github](https://github.com/CKCarr) [linkedIn](https://www.linkedin.com/in/crystal-carrillo/)
+
+
