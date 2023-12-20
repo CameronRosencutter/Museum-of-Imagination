@@ -66,4 +66,6 @@ Please Feel Free to connect with any one of us at our socials linked below!
 
 - Cameron Rosencutter [Github](https://github.com/CameronRosencutter)
 - Eve Baker [Github](https://github.com/EveBaker)
-- Crystal Carrillo [Github](https://github.com/CKCarr) [linkedIn](https://www.linkedin.com/in/crystal-carrillo/) 
+- Crystal Carrillo [Github](https://github.com/CKCarr) [linkedIn](https://www.linkedin.com/in/crystal-carrillo/)
+
+
