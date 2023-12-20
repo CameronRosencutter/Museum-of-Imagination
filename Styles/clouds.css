@@ -52,7 +52,7 @@ body {
     position: absolute;
     left: 0;
     width: 100%;
-    height: 212vh;
+    height: 233vh;
     background: url(../Images/assets/cloud_s.bmp) repeat;
     background-size: cover;
     animation: animate 132s linear infinite;
