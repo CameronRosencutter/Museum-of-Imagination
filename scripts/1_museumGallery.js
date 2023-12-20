@@ -1,6 +1,7 @@
 /** FOR INDEX HTML - ART GALLERY */
 import * as THREE from 'three';
 import { PointerLockControls } from '/node_modules/three/examples/jsm/controls/PointerLockControls.js';
+
 // // imports for add ons to THREE
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 // import { audioPause, audioSetup, audioStart, audioStop } from '/scripts/modules/musicSetup.js';
@@ -44,16 +45,17 @@ document.body.appendChild(renderer.domElement);
 
 /////////// Background Images//////////////////// 
 const imgUrl1 = '../Images/assets/artGallery1Index/low-angle-shot-mesmerizing-starry-sky.jpg';
-const imgUrl2 = '../Images/assets/fantasy.webp';
+const imgUrl2 = '../Images/assets/fantasy_9.webp';
 const imgUrl3 = '../Images/assets/artGallery1Index/ultra-detailed-nebula-abstract-wallpaper-4.jpg';
-
+const imgUrl4 = '../Images/assets/fantasy_10.webp';
 
 
 const loader = new THREE.TextureLoader();
-const texture = loader.load(imgUrl3, () => {
+const texture = loader.load(imgUrl2, () => {
     const rt = new THREE.WebGLCubeRenderTarget(texture.image.height)
     rt.fromEquirectangularTexture(renderer, texture);
     texture.generateMipmaps = true;
+    texture.magFilter = THREE.LinearFilter;
     texture.colorSpace = THREE.SRGBColorSpace;
     texture.minFilter = THREE.LinearMipMapLinearFilter; // Use mipmapping for better performance
 
@@ -88,7 +90,7 @@ window.addEventListener('resize', onWindowResize, false);
 
 // - to see the objects in the scene
 // color, intensity (0-1), distance, decay - params for light
-let ambientLight = new THREE.AmbientLight(0xffffff, 1);
+let ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 
 // position the light - x, y, z - params for position of light
 // not recommended to set camera position to light position
@@ -97,15 +99,13 @@ scene.add(ambientLight);
 
 // directional light - shines in a specific direction
 // color, intensity, distance, decay
-let directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
+let directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
 directionalLight.position.set(20, 100, 10);
 directionalLight.target.position.set(0, 0, 0);
 directionalLight.castShadow = true;
-directionalLight.shadow.bias = -0.001;
+directionalLight.shadow.bias = -0.0001;
 directionalLight.shadow.mapSize.width = 2048;
 directionalLight.shadow.mapSize.height = 2048;
-directionalLight.shadow.camera.near = 0.1;
-directionalLight.shadow.camera.far = 500.0;
 directionalLight.shadow.camera.near = 0.5;
 directionalLight.shadow.camera.far = 500.0;
 directionalLight.shadow.camera.left = 100;
@@ -119,21 +119,27 @@ directionalLight.position.y = 50;
 
 // set a pointer light to follow the camera around
 // color, intensity, distance, decay
-let pointerLight = new THREE.HemisphereLight(0xffffff, 1.0, 100);
-pointerLight.position.set(0, 24, 0);
-scene.add(pointerLight);
+let hemisphereLight = new THREE.HemisphereLight(0xffffff, 0.8, 100);
+hemisphereLight.position.set(0, 24, 0);
+scene.add(hemisphereLight);
+hemisphereLight.visible = true; // turn off hemisphere light
 
 // set a point light to follow the camera around
 // color, intensity, distance, decay
-let pointLight = new THREE.PointLight(0xffffff, 1.0, 100);
-pointLight.position.set(0, 50, 0);
+let pointLight = new THREE.PointLight(0xffffff, 0.5, 100);
+pointLight.position.set(0, 24, 0);
 scene.add(pointLight);
+pointLight.visible = true; // turn off point light
 
 // set a spot light to follow the camera around
 // color, intensity, distance, decay
-let spotLight = new THREE.SpotLight(0xffffff, 1.0, 100);
+let spotLight = new THREE.SpotLight(0xffffff, 0.5, 100);
 spotLight.position.set(0, 24, 0);
 scene.add(spotLight);
+spotLight.visible = true; // turn off spot light
+
+
+renderer.outputEncoding = THREE.sRGBEncoding;
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -739,9 +745,11 @@ function animate() {
     requestAnimationFrame(animate);
 
     // // Set the position of the light to the camera's position
-    // pointLight.position.copy(camera.position);
+    pointLight.position.copy(camera.position);
 
-
+    // Shadow Configuration (if you have objects in the scene)
+    renderer.shadowMap.enabled = true;
+    renderer.colorSpace = THREE.sRGBColorSpace;
     // Rotate the dome about the vertical axis (Y-axis)
     dome.rotation.y += 0.0003; // Adjust the speed as needed
 
