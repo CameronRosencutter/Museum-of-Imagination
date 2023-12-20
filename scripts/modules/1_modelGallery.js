@@ -1,6 +1,5 @@
 /** FOR INDEX HTML - ART GALLERY */
 // console log for inspector to see if THREE is loaded
-import * as THREE from 'three';
 import { PointerLockControls } from './scripts/PointerLockControls.js';
 
 console.log("THREE object is loaded 😄, here is the THREE object: ", THREE)
