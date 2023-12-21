@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no user-scalable=no">
     <!--favicon -->
-    <link rel="icon" sizes="180x180" href="../Images/building-assets/Imagination.svg">
+
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -27,14 +27,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="../Styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="Styles/styles.css">
 
-    <link rel="stylesheet" type="text/css" href="../Styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="Styles/normalize.css">
 
-    <link rel="stylesheet" type="text/css" href="../Styles/clouds.css">
+    <link rel="stylesheet" type="text/css" href="Styles/clouds.css">
 
 
-    <title>Museum Gallery</title>
+    <title> Imagination Gallery </title>
 
     <!-- Popper.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -42,13 +42,11 @@
         crossorigin="anonymous"></script>
 
     <!-- THREE.js -->
-
-
     <script type="importmap">
         {
         "imports": {
         "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
+        "three/addons": "https://unpkg.com/three@0.159.0/examples/jsm/controls/PointerLockControls"
         }
         }
         </script>
@@ -64,27 +62,6 @@
     <!-- Menu attached to room  -->
     <div id="menu" class="d-flex container-fluid justify-content-center col-12 py-5">
 
-        <!-- Card for Room 1  -->
-        <div id="menu" class="card text-center text-primary bg-dark " style="width:350px">
-            <img class="card-img-top" style="height: 300px;" src="../Images/assets/imagineamuseum.png" alt="Card image">
-            <div class="card-body">
-                <h4 class="card-title">Museum of Imagination Tour<br></h4>
-                <p class="card-text">Made with 💜 and THREE.js</p>
-                <p class="lead">Control Guide</p>
-                <p>W - Forward / S - Backward </p>
-                <p>A - Left / D - Right</p>
-                <p>Q - rotate Left / E - rotate Right</p>
-
-
-                <!--   -->
-                <div id="playButton" class=''>
-                    <a id="play-button" href="./museumGallery.html"
-                        class="btn btn-block btn-link stretched-link text-light font-weight-bold btn-outline-primary rounded-circle ">Return
-                        to Home Page </a>
-                </div>
-            </div>
-        </div>
-
         <!-- Card for Room 2  -->
 
         <div id="menu-div" class="audio_controls">
@@ -95,9 +72,32 @@
             <button id="stop_audio">Stop Audio </button>
         </div>
 
+        <div class="card text-center text-primary bg-dark " style="width:350px">
+            <img class="card-img-top" style="height: 300px;" src="Images/buildingicons/weirdbuild.png" alt="Card image">
+            <div class="card-body">
+                <h4 class="card-title">Welcome<br><span class="text-primary">This
+                        is
+                        a 3D Art
+                        Gallery</span></h4>
+                <p class="card-text">Made with 💜 and THREE.js</p>
+                <p class="lead">Control Guide</p>
+                <p>W - Forward / S - Backward </p>
+                <p>A - Left / D - Right</p>
+                <p>Q - rotate Left / E - rotate Right</p>
+
+                <div id="playButton" class=''>
+                    <a id="play-button" href="index.html"
+                        class="btn btn-block btn-link stretched-link text-light font-weight-bold btn-outline-primary rounded-circle ">Return
+                        To Homepage</a>
+                </div>
+
+            </div>
+        </div>
     </div>
 
-    <script type="module" src="../scripts/1_museumGallery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.159.0/build/three.min.js"></script>
+
+    <script type="module" src="./scripts/1_modelGallery.js"></script>
 
 </body>
 
