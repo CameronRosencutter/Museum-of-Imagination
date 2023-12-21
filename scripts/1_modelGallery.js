@@ -5,14 +5,16 @@
 console.log("THREE object is loaded 😄, here is the THREE object: ", THREE)
 import * as THREE from 'three';
 
-import { initScene } from '/scripts/sceneSetup.js';
+import { initScene } from './sceneSetup.js';
 import { initControls } from './controls.js';
-import { addObjects } from '/objects.js';
-import { animate } from '/animation.js';
-
-import { audioPause, audioSetup, audioStart, audioStop } from '/musicSetup.js';
+import { addObjects } from './objects.js';
+import { animate } from './animation.js';
+import { playButtonSetup } from './menu.js';
+import { audioPause, audioSetup, audioStart, audioStop } from './musicSetup.js';
 // import { initLoaders } from './loaderSetup.js';
-import { MapControls } from '../../node_modules/three/addons/controls/MapControls.js';
+// import { MapControls } from '../three/addons/controls/MapControls.js';
+import { MapControls } from 'https://unpkg.com/three@0.159.0/examples/jsm/controls/MapControls.js';
+
 
 // import { loadGLTFModel } from './loaderSetup.js';
 // import { checkCollision } from './movement.js';
@@ -21,7 +23,7 @@ import { MapControls } from '../../node_modules/three/addons/controls/MapControl
 // import { objectTexture } from '/modules/utility.js';
 // import { setUpBoundingBox } from './utility.js';
 // import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { playButtonSetup } from '/menu.js';
+
 
 // //////////////////////////////////////////////////////////////////////////////
 
