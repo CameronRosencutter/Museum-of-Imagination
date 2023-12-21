@@ -1,6 +1,7 @@
 /** FOR INDEX HTML - ART GALLERY */
 import * as THREE from 'three';
-import { PointerLockControls } from '../../node_modules/three/examples/jsm/controls/PointerLockControls.js';
+import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls.js';
+
 // // imports for add ons to THREE
 // import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 // import { audioPause, audioSetup, audioStart, audioStop } from '/scripts/modules/musicSetup.js';
@@ -233,48 +234,7 @@ function onKeyDown(event) {
     }
 }
 
-// // touch test
 
-// let lastTouchX, lastTouchY;
-
-// function onTouchStart(event) {
-//     lastTouchX = event.touches[0].clientX;
-//     lastTouchY = event.touches[0].clientY;
-// }
-
-// function onTouchMove(event) {
-//     event.preventDefault(); // Prevents default touch actions like scrolling
-
-//     const touchX = event.touches[0].clientX;
-//     const touchY = event.touches[0].clientY;
-
-//     const deltaX = touchX - lastTouchX;
-//     const deltaY = touchY - lastTouchY;
-
-//     // Rotate the camera
-//     rotateCamera(deltaX, deltaY);
-
-//     lastTouchX = touchX;
-//     lastTouchY = touchY;
-// }
-
-// // Attach event listeners
-// renderer.domElement.addEventListener('touchstart', onTouchStart, false);
-// renderer.domElement.addEventListener('touchmove', onTouchMove, false);
-
-
-// function rotateCamera(deltaX, deltaY) {
-//     const rotationSpeed = 0.005; // Adjust this value to control rotation speed
-
-//     // Calculate rotation around y-axis (left/right movement)
-//     camera.rotation.y += deltaX * rotationSpeed;
-
-//     // Calculate rotation around x-axis (up/down movement)
-//     camera.rotation.x += deltaY * rotationSpeed;
-
-//     // Optionally, you can limit the rotation to avoid flipping the scene upside down
-//     camera.rotation.x = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, camera.rotation.x));
-// }
 
 
 /////////////////////////////////////////////////////////////////////////////

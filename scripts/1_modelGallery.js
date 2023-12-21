@@ -13,7 +13,7 @@ import { playButtonSetup } from './menu.js';
 import { audioPause, audioSetup, audioStart, audioStop } from './musicSetup.js';
 // import { initLoaders } from './loaderSetup.js';
 // import { MapControls } from '../three/addons/controls/MapControls.js';
-import { MapControls } from 'https://unpkg.com/three@0.159.0/examples/jsm/controls/MapControls.js';
+import { MapControls } from 'three/examples/jsm/controls/MapControls.js';
 
 
 // import { loadGLTFModel } from './loaderSetup.js';

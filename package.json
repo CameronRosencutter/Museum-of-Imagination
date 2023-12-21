@@ -1,9 +1,12 @@
 {
     "name": "museum-of-imagination",
     "version": "1.0.0",
+    "main": "index.js",
     "description": "",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack --mode production",
+        "start": "webpack serve --mode development"
     },
     "keywords": [],
     "author": "",
@@ -17,6 +20,8 @@
     "devDependencies": {
         "vite": "^5.0.10",
         "webpack": "^5.89.0",
-        "webpack-cli": "^5.1.4"
+        "webpack-bundle-analyzer": "^4.10.1",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^4.15.1"
     }
 }
