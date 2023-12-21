@@ -685,7 +685,7 @@ export const audioSetup = (camera) => {
     // create an audio loader
     const audioLoader = new THREE.AudioLoader();
     // load the audio file
-    audioLoader.load("../audio/ethereal-voyage-161507.mp3", function (buffer) {
+    audioLoader.load("/audio/ethereal-voyage-161507.mp3", function (buffer) {
         // set the audio source buffer
         sound.setBuffer(buffer);
         // set the audio source to loop

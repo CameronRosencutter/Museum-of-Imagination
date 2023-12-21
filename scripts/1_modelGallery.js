@@ -48,7 +48,7 @@ const { scene, camera, renderer } = initScene();
 console.log(scene, camera, renderer); // Check if these are defined
 
 // Initialize audio
-audioSetup(camera);
+
 
 // Initialize controls
 initControls(camera, renderer);
@@ -66,7 +66,7 @@ export function onWindowResize() {
 // Add event listener for window resizing
 window.addEventListener('resize', onWindowResize, false);
 
-
+audioSetup(camera);
 // Add objects to the scene and receive any objects that might be needed for animation
 // // Call addObjects and handle the asynchronous operation
 addObjects(scene, (objects) => {
