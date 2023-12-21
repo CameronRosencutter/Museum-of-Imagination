@@ -5,8 +5,8 @@
 console.log("THREE object is loaded 😄, here is the THREE object: ", THREE)
 import * as THREE from 'three';
 
-import { initScene } from '/sceneSetup.js';
-import { initControls } from '/controls.js';
+import { initScene } from 'scripts/modules/sceneSetup.js';
+import { initControls } from 'scripts/modules/controls.js';
 import { addObjects } from '/objects.js';
 import { animate } from '/animation.js';
 

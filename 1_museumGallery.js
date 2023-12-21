@@ -1,6 +1,6 @@
 /** FOR INDEX HTML - ART GALLERY */
 import * as THREE from 'three';
-import { PointerLockControls } from '../node_modules/three/examples/jsm/controls/PointerLockControls.js';
+import { PointerLockControls } from '/node_modules/three/examples/jsm/controls/PointerLockControls.js';
 
 // // imports for add ons to THREE
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
@@ -19,7 +19,7 @@ console.log("THREE object is loaded 😄, here is the THREE object: ", THREE);
  * 7. Render scene
  * 8. Animate scene
  * 
- */ 
+ */
 
 /////////////////////////////////////////////////////////////////////////////
 // SCENE < > CAMERA
