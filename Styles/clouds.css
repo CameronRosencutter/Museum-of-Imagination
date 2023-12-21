@@ -53,16 +53,21 @@ body {
 
 /* CLOUDS FOR HOMEPAGE */
 
+.navbar {
+    z-index: 5;
+}
+
 .cloud2 {
     position: absolute;
     left: 0;
+    top: 0;
     width: 100%;
-    height: 255vh;
+    height: 295vh;
     background: url(../Images/assets/cloud_s.bmp) repeat;
     background-size: cover;
     animation: animate 132s linear infinite;
     opacity: 0.1;
-    z-index: 2;
+    z-index: 1;
     border: none;
     mask-image: linear-gradient(#000 0,0,0,0,);
 }
