@@ -19,7 +19,7 @@ console.log("THREE object is loaded 😄, here is the THREE object: ", THREE);
  * 7. Render scene
  * 8. Animate scene
  * 
- */
+ */ 
 
 /////////////////////////////////////////////////////////////////////////////
 // SCENE < > CAMERA
