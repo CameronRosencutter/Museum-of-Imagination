@@ -5,12 +5,12 @@
 console.log("THREE object is loaded 😄, here is the THREE object: ", THREE)
 import * as THREE from 'three';
 
-import { initScene } from './sceneSetup.js';
-import { initControls } from './controls.js';
-import { addObjects } from './objects.js';
-import { animate } from './animation.js';
+import { initScene } from '/sceneSetup.js';
+import { initControls } from '/controls.js';
+import { addObjects } from '/objects.js';
+import { animate } from '/animation.js';
 
-import { audioPause, audioSetup, audioStart, audioStop } from './musicSetup.js';
+import { audioPause, audioSetup, audioStart, audioStop } from '/musicSetup.js';
 // import { initLoaders } from './loaderSetup.js';
 import { MapControls } from 'three/addons/controls/MapControls.js';
 
@@ -21,7 +21,7 @@ import { MapControls } from 'three/addons/controls/MapControls.js';
 // import { objectTexture } from '/modules/utility.js';
 // import { setUpBoundingBox } from './utility.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { playButtonSetup } from './menu.js';
+import { playButtonSetup } from '/menu.js';
 
 // //////////////////////////////////////////////////////////////////////////////
 

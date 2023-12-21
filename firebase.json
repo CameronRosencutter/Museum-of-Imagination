@@ -1,0 +1,16 @@
+{
+    "hosting": {
+        "public": ".",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**",
+            "package-lock.json",
+            "package.json",
+            "**/.git/**",
+            "**/.vscode/**",
+            "Museum-of-Imagination.code-workspace",
+            "README.md"
+        ]
+    }
+}
