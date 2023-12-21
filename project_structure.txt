@@ -1,0 +1,54 @@
+.
+├── 1_museumGallery.js
+├── BootstrapCSS
+├── Fonts
+│ 
+├── Images
+│
+├── Museum-of-Imagination.code-workspace
+├── README.md
+├── Styles
+│   ├── Homepage
+│   │   ├── _enter.scss
+│   │   ├── _mainbuilding.scss
+│   │   ├── _models.scss
+│   │   └── _whatwedo.scss
+│   ├── _aboutus.scss
+│   ├── _fonts.scss
+│   ├── _footer.scss
+│   ├── _navbar.scss
+│   ├── clouds.css
+│   ├── normalize.css
+│   ├── styles.css
+│   ├── styles.css.map
+│   └── styles.scss
+├── audio
+│   ├── dramatic-background-orchestral-hip-hop-music-for-vlog-video-60-second-180910.mp3
+│   └── ethereal-voyage-161507.mp3
+├── contact.html
+├── firebase.json
+├── index.html
+├── index.js
+├── modelGallery.html
+├── museum.js
+├── museumGallery.html
+├── node_modules
+├── package-lock.json
+├── package.json
+├── pages
+│   ├── modelGallery.html
+│   └── museumGallery.html
+├── project_structure.txt
+└── scripts
+    ├── 1_modelGallery.js
+    ├── animation.js
+    ├── controls.js
+    ├── lightingSetup.js
+    ├── loaderSetup.js
+    ├── menu.js
+    ├── musicSetup.js
+    ├── objects.js
+    ├── sceneSetup.js
+    └── utility.js
+
+286 directories, 3658 files
